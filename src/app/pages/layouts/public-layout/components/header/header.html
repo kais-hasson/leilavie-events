@@ -1,5 +1,25 @@
-<header>
-  <h1>
-    Leilave Events
-  </h1>
+<header class="h-[10vh] flex items-center justify-between px-4 bg-primary text-text shadow-md">
+  <div class="brand">
+    <h1>
+      Leilave Events
+    </h1>
+  </div>
+  <nav>
+    @for (item of headerMenuItems; track item.id){
+      @if (navigationMode()==='single-page'){
+        <a [href]="'#'+item.sectionId">{{ item.title }}</a>
+      } @else {
+        <a [routerLink]="item.route">{{ item.title }}</a>
+      }
+    }
+  </nav>
+  <div class="actions">
+    <button
+      type="button"
+      (click)="openSettings()"
+      aria-label="Open settings"
+    >
+      ⚙️
+    </button>
+  </div>
 </header>
