@@ -1,10 +1,14 @@
+<div class="bg-background">
 <app-header (settingsRequested)="openSettings()"/>
 
-<main>
-
-  <router-outlet/>
-
+<main class="h-[88vh] w-[99vw] relative top-25 font-app text-primary-800 text-app">
+  @if (navigationMode() === 'single-page') {
+    <app-sections />
+  } @else {
+    <router-outlet />
+  }
 </main>
 
 <app-footer/>
 <app-settings />
+</div>

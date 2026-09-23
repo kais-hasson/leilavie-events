@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './home.scss',
   templateUrl: './home.html',
 })
-export class Home {}
+export class Home {
+  text = signal(
+    `Leilavie
+Sweet sights, Sweet delights.
+Events. Gifts. Flowers. Grazing.
+Made with love 💕
+Dm to order - NJ`,
+  );
+}

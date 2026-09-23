@@ -31,6 +31,9 @@ export class ThemeService {
 
     root.style.setProperty('--app-background', theme.background);
     root.style.setProperty('--app-text', theme.text);
+    root.style.setProperty('--app-font-family', theme.fontFamily);
+    root.style.setProperty('--app-font-size', theme.fontSize);
+    root.style.setProperty('--app-header-font-size', theme.headerFontSize);
   }
 
   private applyPalette(root: HTMLElement, name: string, palette: Palette): void {

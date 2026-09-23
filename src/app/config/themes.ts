@@ -26,6 +26,10 @@ export type Theme = {
   onBackground?: string;
   onSurface?: string;
   onError?: string;
+
+  fontFamily: string;
+  fontSize: string;
+  headerFontSize: string;
 };
 
 function generatePalette(color: string): Palette {
@@ -80,6 +84,9 @@ export const themes: Record<string, Theme> = {
     secondary: generatePalette('#7A8B7B'),
     background: '#FAFAFA',
     text: '#FAFAFA',
+    fontFamily: 'Great Vibes',
+    fontSize: '16px',
+    headerFontSize: '24px',
   },
 
   second: {
@@ -87,11 +94,17 @@ export const themes: Record<string, Theme> = {
     secondary: generatePalette('#6B5282'),
     background: '#FFF9FA',
     text: '#FAFAFA',
+    fontFamily: 'Poppins',
+    fontSize: '16px',
+    headerFontSize: '24px',
   },
   third: {
     primary: generatePalette('#FFF9FA'),
     secondary: generatePalette('#7A8B7B'),
     background: '#6B5282',
     text: '#6B5282',
+    fontFamily: 'Montserrat',
+    fontSize: '16px',
+    headerFontSize: '24px',
   },
 };

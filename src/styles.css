@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme inline {
@@ -29,4 +30,7 @@
 
   --color-background: var(--app-background);
   --color-text: var(--app-text);
+  --font-app: var(--app-font-family);
+  --text-header: var(--app-header-font-size);
+  --text-app: var(--app-font-size);
 }

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 250" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #FAFAFA; }
+      .purple { fill: #6B5282; stroke: #6B5282; }
+      .stem { fill: none; stroke: #7A8B7B; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .leaf { fill: #7A8B7B; }
+      .text-main { font-family: 'Dancing Script', 'Brush Script MT', cursive; font-size: 85px; fill: #6B5282; }
+      .text-sub { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-size: 14px; fill: #6B5282; letter-spacing: 3px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="100%" height="100%" />
+
+  <g transform="translate(10, 0)">
+    <!-- Left Lavender Stem & Flower -->
+    <g id="lavender-main">
+      <!-- Stems -->
+      <path class="stem" d="M 110,200 C 105,160 102,120 120,70" />
+      
+      <!-- Leaves -->
+      <path class="leaf" d="M 108,165 Q 90,155 85,145 Q 100,153 107,160 Z" />
+      <path class="leaf" d="M 106,145 Q 122,133 128,122 Q 115,133 105,140 Z" />
+      <path class="leaf" d="M 105,125 Q 92,110 88,100 Q 100,110 104,120 Z" />
+      
+      <!-- Petals (Lavender Buds) -->
+      <!-- Bottom cluster -->
+      <path class="purple" d="M 118,85 C 112,85 110,78 116,75 C 122,78 120,85 118,85 Z" />
+      <path class="purple" d="M 124,87 C 130,87 132,80 126,77 C 120,80 122,87 124,87 Z" />
+      
+      <path class="purple" d="M 116,73 C 110,73 108,66 114,63 C 120,66 118,73 116,73 Z" />
+      <path class="purple" d="M 124,75 C 130,75 132,68 126,65 C 120,68 122,75 124,75 Z" />
+      
+      <path class="purple" d="M 115,60 C 109,60 107,53 113,50 C 119,53 117,60 115,60 Z" />
+      <path class="purple" d="M 123,62 C 129,62 131,55 125,52 C 119,55 121,62 123,62 Z" />
+      
+      <!-- Top cluster -->
+      <path class="purple" d="M 118,48 C 113,44 115,38 120,40 C 123,43 121,47 118,48 Z" />
+    </g>
+
+    <!-- Secondary Lavender Stem (Right) -->
+    <g id="lavender-secondary">
+      <path class="stem" d="M 108,165 C 120,150 135,125 155,100" />
+      <path class="leaf" d="M 122,148 Q 138,142 145,135 Q 132,142 121,146 Z" />
+      
+      <!-- Petals -->
+      <path class="purple" d="M 148,112 C 143,110 142,103 148,101 C 153,103 152,110 148,112 Z" />
+      <path class="purple" d="M 154,115 C 159,113 160,106 154,104 C 149,106 150,113 154,115 Z" />
+      
+      <path class="purple" d="M 152,100 C 147,98 146,91 152,89 C 157,91 156,98 152,100 Z" />
+      <path class="purple" d="M 158,103 C 163,101 164,94 158,92 C 153,94 154,101 158,103 Z" />
+      
+      <path class="purple" d="M 156,88 C 152,84 154,78 159,80 C 161,83 159,87 156,88 Z" />
+    </g>
+
+    <!-- Logo Text -->
+    <!-- Brand Name -->
+    <text x="170" y="160" class="text-main">leilavie</text>
+    
+    <!-- Tagline -->
+    <text x="172" y="195" class="text-sub">SWEET SIGHTS • SWEET DELIGHTS</text>
+  </g>
+</svg>
