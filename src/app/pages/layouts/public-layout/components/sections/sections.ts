@@ -1,9 +1,18 @@
-import { AfterViewInit, Component, ElementRef, inject, QueryList, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  PLATFORM_ID,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { SettingsService } from '../../../../../services/settings.service';
 import { Home } from '../../../../home/home';
 import { About } from '../../../../about/about';
 import { ContactUs } from '../../../../contact-us/contact-us';
 import { OurServices } from '../../../../our-services/our-services';
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   imports: [Home, About, ContactUs, OurServices],
   selector: 'app-sections',
@@ -13,7 +22,13 @@ import { OurServices } from '../../../../our-services/our-services';
 export class Sections implements AfterViewInit {
   private readonly settingsService = inject(SettingsService);
   private readonly elementRef = inject(ElementRef);
+  private readonly platformId = inject(PLATFORM_ID);
+
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     const sections = this.elementRef.nativeElement.querySelectorAll('section');
 
     const observer = new IntersectionObserver(
@@ -37,4 +52,12 @@ export class Sections implements AfterViewInit {
       observer.observe(section);
     });
   }
+  readonly homeImages = [
+    'assets/img/li.jpg',
+    'assets/img/img.jpg',
+    'assets/img/li.jpg',
+    'assets/img/li.jpg',
+    'assets/img/img.jpg',
+    'assets/img/li.jpg',
+  ];
 }
