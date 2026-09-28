@@ -1,0 +1,81 @@
+<div class="carousel-container">
+
+  <!-- SLOT 0 -->
+  <div
+    #slot0
+    class="contact-carousel-item"
+  >
+    @if (slot0Image()) {
+      <img
+        [src]="slot0Image()"
+        alt=""
+        class="carousel-image"
+      />
+    }
+  </div>
+
+  <!-- SLOT 1 -->
+  <div
+    #slot1
+    class="contact-carousel-item"
+  >
+    @if (slot1Image()) {
+      <img
+        [src]="slot1Image()"
+        alt=""
+        class="carousel-image"
+      />
+    }
+  </div>
+
+  <!-- SLOT 2 -->
+  <div
+    #slot2
+    class="contact-carousel-item"
+  >
+    @if (slot2Image()) {
+      <img
+        [src]="slot2Image()"
+        alt=""
+        class="carousel-image"
+      />
+    }
+  </div>
+
+  <!-- SLOT 3 -->
+  <div
+    #slot3
+    class="contact-carousel-item"
+  >
+    @if (slot3Image()) {
+      <img
+        [src]="slot3Image()"
+        alt=""
+        class="carousel-image"
+      />
+    }
+  </div>
+
+  <!-- PREVIOUS -->
+  <button
+    type="button"
+    class="carousel-button carousel-button-left"
+    aria-label="Previous image"
+    [disabled]="isAnimating()"
+    (click)="previous()"
+  >
+    ←
+  </button>
+
+  <!-- NEXT -->
+  <button
+    type="button"
+    class="carousel-button carousel-button-right"
+    aria-label="Next image"
+    [disabled]="isAnimating()"
+    (click)="next()"
+  >
+    →
+  </button>
+
+</div>

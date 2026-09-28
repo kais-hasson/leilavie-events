@@ -5,7 +5,8 @@
   ></div>
 
   <aside
-    class="fixed top-0 right-0 z-50 h-full w-80 bg-background text-ptimary shadow-xl"
+    class="fixed top-0 right-0 z-50 h-full w-80  border
+    border-white/20 bg-primary/20 font-app text-primary-80 shadow-xl"
   >
     <div class="flex items-center justify-between border-b border-primary-100 p-4">
       <h2 class="text-xl font-semibold">
@@ -22,27 +23,39 @@
       </button>
     </div>
 
-    <div class="p-4">
+    <div class="p-4 flex flex-col">
       <h3 class="mb-3 font-medium">
         Theme
       </h3>
-      <button (click)="setTheme('default')"
-              class="bg-[#6B5282] text-[#FAFAFA]"
-      >default</button>
-      <button (click)="setTheme('second')"
-              class="bg-[#7A8B7B] text-[#FAFAFA]"
-      >second</button>
-      <button (click)="setTheme('third')"
-              class="bg-[#FFF9FA] text-[#6B5282]"
-      >third</button>
+      <div class="flex gap-2 flex-1 align-center h-[4vh] w-full">
+        <button (click)="setTheme('default')"
+                class="bg-[#6B5282] border p-1
+    border-white/20 cursor-pointer rounded-xl text-[#FAFAFA]"
+        >#6B5282
+        </button>
+        <button (click)="setTheme('second')"
+                class="bg-[#7A8B7B] border p-1
+    border-white/20 cursor-pointer rounded-xl text-[#FAFAFA]"
+        >#7A8B7B
+        </button>
+        <button (click)="setTheme('third')"
+                class="bg-[#FFF9FA] border p-1
+    border-white/20 cursor-pointer rounded-xl text-[#6B5282]"
+        >#FFF9FA
+        </button>
+      </div>
+
 
       <!-- Theme options will be added here -->
       <h3 class="mb-3 font-medium">
         Pages style
       </h3>
-      <button (click)="setNavigationMode('single-page')"   [class.font-semibold]="navigationMode() === 'single-page'">Single Page</button>
-      <button (click)="setNavigationMode('pages')"   [class.font-semibold]="navigationMode() === 'pages'">Pages</button>
-
+      <div class="flex flex-col gap-2 flex-1 align-center h-[4vh] w-full">
+        <button class="bg-[url('/assets/img/single-page.jpg')] rounded-xl h-50 w-50 shadow-xl bg-cover bg-center bg-no-repeat" (click)="setNavigationMode('single-page')" [class.font-semibold]="navigationMode() === 'single-page'">
+          Single Page
+        </button>
+        <button class="bg-[url('/assets/img/pages.jpg')] shadow-xl rounded-xl h-50 w-50 bg-cover bg-center bg-no-repeat"  (click)="setNavigationMode('pages')" [class.font-semibold]="navigationMode() === 'pages'">Pages</button>
+      </div>
     </div>
   </aside>
 }

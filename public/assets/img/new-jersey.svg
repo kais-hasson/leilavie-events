@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 800" width="100%" height="100%">
+  <defs>
+    <!-- نمط خلفية ناعم من نقاط اللون الأخضر الزيتي للتفاصيل -->
+    <pattern id="detail-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#7A8B7B" opacity="0.4" />
+    </pattern>
+  </defs>
+
+  <g id="new-jersey-map">
+    <!-- شكل ولاية نيوجيرسي الأساسي باللون البنفسجي اللافندر -->
+    <path 
+      d="M 285 55 
+         L 315 70 L 335 95 L 365 110 L 350 135 L 340 160 L 360 185 L 380 205 L 395 240 L 360 255 L 330 270 L 320 300 
+         L 305 340 L 290 380 L 285 420 L 295 460 L 310 500 L 315 540 L 295 580 L 260 620 L 220 660 L 180 700 L 150 730 
+         L 130 750 L 115 740 L 125 700 L 145 660 L 150 620 L 135 580 L 120 540 L 110 500 L 125 460 L 150 420 L 175 380 
+         L 190 340 L 205 300 L 210 260 L 200 220 L 215 180 L 235 140 L 250 100 L 265 70 Z" 
+      fill="#6B5282" 
+      stroke="#7A8B7B" 
+      stroke-width="3" 
+      stroke-linejoin="round" 
+      stroke-linecap="round" 
+    />
+
+    <!-- تفاصيل وخطوط داخلية تجميلية باللون الأخضر الزيتي -->
+    <path 
+      d="M 285 120 C 270 200, 250 300, 210 400" 
+      fill="none" 
+      stroke="#7A8B7B" 
+      stroke-width="1.5" 
+      stroke-dasharray="4,4" 
+      opacity="0.7"
+    />
+    
+    <path 
+      d="M 330 270 C 280 320, 240 450, 160 600" 
+      fill="none" 
+      stroke="#7A8B7B" 
+      stroke-width="1.5" 
+      stroke-dasharray="4,4" 
+      opacity="0.7"
+    />
+
+    <!-- نقطة مميزة للعاصمة أو نقطة رئيسية برمز اللافندر/الوردة -->
+    <circle cx="210" cy="380" r="6" fill="#7A8B7B" />
+    <circle cx="210" cy="380" r="10" fill="none" stroke="#7A8B7B" stroke-width="1.5" opacity="0.8" />
+  </g>
+</svg>

@@ -52,12 +52,5 @@ export class Sections implements AfterViewInit {
       observer.observe(section);
     });
   }
-  readonly homeImages = [
-    'assets/img/li.jpg',
-    'assets/img/img.jpg',
-    'assets/img/li.jpg',
-    'assets/img/li.jpg',
-    'assets/img/img.jpg',
-    'assets/img/li.jpg',
-  ];
+
 }

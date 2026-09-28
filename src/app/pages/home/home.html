@@ -1,39 +1,65 @@
-<div class="bg-secondary/10 m-10 p-10 text-header font-bold  flex flex-col items-start ">
-  <header>
-    <p  class="text-[calc(var(--app-header-font-size)+2rem)]">
-      Leilavie
-    </p>
-    <p>
-    Sweet sights, Sweet delights.
-    </p>
-  </header>
-  <main class="flex flex-col gap-2 items-start w-full">
-    <div class="flex justify-between h-[76vh] w-full " >
+<div class="text-header font-bold  flex flex-col items-start ">
+  <header class=" flex justify-between items-center w-full px-6 ">
+    <div>
+      <p  class="text-[calc(var(--app-header-font-size)+2rem)] tracking-tight">
+        Leilavie
+      </p>
+      <p>
+        Sweet sights, Sweet delights.
+      </p>
+    </div><div>
+    <div class="bg-[url('/assets/logos/lavander.svg')] shadow-xl bg-cover bg-[#FAFAFA] bg-center bg-no-repeat h-30 w-30 rounded-full " >
+    </div>
+    </div>
+
+  </header >
+  <main class="w-full">
+    <div class="flex justify-between h-[68vh]  rounded-[3rem]
+         border border-primary/10
+         bg-gradient-to-br
+         bg-primary/50
+         px-6 py-10
+         m-8
+         to-white/100
+         shadow-2xl shadow-primary/5
+         backdrop-blur-xl
+         lg:px-12" >
       <div class="self start px-2 mx-2  bg-gradient-to-t
          from-primary/30
          via-background/40
          rounded-full
          ">
-        <div class="bg-[url('/assets/logos/gemini-svg.svg')] shadow-xl bg-cover bg-center bg-no-repeat h-50 w-50 border rounded-full border-primary" >
+        <div class="flex h-56 w-56 items-center justify-center
+             rounded-full
+             border border-primary/20
+        bg-gradient-to-br
+        from-primary/20
+        via-background/40
+        to-secondary/10
+        p-3
+        shadow-xl shadow-primary/10
+        backdrop-blur-xl">
+
+        </div>
+        <div class="bg-[url('/assets/logos/gemini-svg.svg')] top-10 m-[11px] absolute shadow-xl bg-cover bg-center bg-no-repeat h-50 w-50 border rounded-full border-primary" >
+
       </div>
       </div>
-      <div  class="self-end">
-        <img src="assets/img/li.jpg"  class="h-110 w-60 shadow-xl p-5 border border-primary bg-secondary/30 backdrop-blur-xl rounded-[30vh] backdrop-blur-xl"/>
+      <div
+        class="relative z-10 flex w-full
+         items-center justify-center
+         lg:w-[50vw]"
+      >
+     <div class="w-full max-w-2xl">
+       <app-image-slider-animations [images]="homeImages"/>
+     </div>
       </div>
-      <div  class="self-center">
-        <img src="assets/img/li.jpg"  class="h-125 w-75 shadow-xl p-5 border border-primary bg-secondary/30 backdrop-blur-xl rounded-[30vh] backdrop-blur-xl"/>
-      </div>
-      <div  class="self-start">
-        <img src="assets/img/li.jpg"  class="h-110 w-60 shadow-xl p-5 border border-primary bg-secondary/30 backdrop-blur-xl rounded-[30vh] backdrop-blur-xl"/>
-      </div>
-      <div class="self-start  m-8 bg-gradient-to-t
-         from-primary/30
-         via-background/40">
+      <div class="self-start flex flex-col  m-8 gap-6">
         <p class="font-app text-primary rounded-2xl
          border border-primary/20
          bg-gradient-to-r
-         from-primary/20
-         via-background/40
+         from-primary/10
+         via-background/70
          to-primary/10
          px-6 py-3
          backdrop-blur-xl
@@ -42,7 +68,53 @@
             <span class="block">{{ line }}</span>
           }
         </p>
+        <div
+          class="bottom-6 right-6 z-20
+         w-full h-[50%]
+         rounded-3xl
+         border border-primary/20
+         bg-background/50
+         p-3
+         shadow-xl shadow-primary/10
+         backdrop-blur-xl"
+        >
+          <div class="mb-2 flex items-center justify-between">
+    <span
+      class="text-xs font-semibold
+             uppercase tracking-widest
+             text-primary"
+    >
+      Service Area
+    </span>
+
+            <span
+              class="text-xs font-medium
+             text-secondary"
+            >
+      New Jersey
+    </span>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-2xl
+           border border-primary/10
+           bg-primary/10"
+          >
+            <img
+              src="/assets/img/new-jersey.svg"
+              alt="LeilaVie Events service area — New Jersey"
+              class="h-28 w-full object-contain"
+            />
+          </div>
+
+          <p
+            class="mt-2 text-center
+           text-xs text-primary/70"
+          >
+            Serving all New Jersey
+          </p>
+        </div>
+        </div>
       </div>
-    </div>
   </main>
 </div>
