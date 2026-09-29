@@ -1,165 +1,307 @@
-<div class="text-header font-bold  flex flex-col items-start ">
-  <header class=" flex justify-between items-center w-full px-6 ">
+<div class="text-header font-bold flex flex-col items-start">
+
+  <header class="flex justify-between items-center w-full px-4 sm:px-6">
     <div>
-      <p  class="text-[calc(var(--app-header-font-size)+2rem)] tracking-tight">
+      <p
+        class="text-[calc(var(--app-header-font-size)+1rem)]
+               sm:text-[calc(var(--app-header-font-size)+2rem)]
+               tracking-tight"
+      >
         Leilavie
       </p>
-      <p>
+
+      <p class="text-sm sm:text-base">
         Sweet sights, Sweet delights.
       </p>
-    </div><div>
-    <div class="bg-[url('/assets/logos/lavander.svg')] shadow-xl bg-cover bg-[#FAFAFA] bg-center bg-no-repeat h-30 w-30 rounded-full " >
-    </div>
     </div>
 
-  </header >
-  <main class="w-full">
-    <div class="flex justify-between h-[68vh]  rounded-[3rem]
-         border border-primary/10
-         bg-gradient-to-br
-         bg-primary/50
-         px-6 py-10
-         m-8
-         to-white/100
-         shadow-2xl shadow-primary/5
-         backdrop-blur-xl
-         lg:px-12" >
-      <div class="self start px-2 mx-2  bg-gradient-to-t
-         from-primary/30
-         via-background/40
-         rounded-full
-         ">
-        <div class="flex h-56 w-56 items-center justify-center
-             rounded-full
-             border border-primary/20
-        bg-gradient-to-br
-        from-primary/20
-        via-background/40
-        to-secondary/10
-        p-3
-        shadow-xl shadow-primary/10
-        backdrop-blur-xl">
-
-        </div>
-        <div class="bg-[url('/assets/logos/gemini-svg.svg')] top-10 m-[11px] absolute shadow-xl bg-cover bg-center bg-no-repeat h-50 w-50 border rounded-full border-primary" >
-        <div class="top-55 absolute w-full flex flex-col items-center justify-center gap-2">
-          <button
-            class="mt-4 w-full font-bold  rounded-full border border-primary/20
-             bg-gradient-to-br
-             from-background/20
-             via-background/40
-             to-secondary/10
-             px-6 py-3
-             text-sm font-semibold text-primary
-             shadow-xl shadow-primary/10
-             backdrop-blur-xl">
-            flowers</button>
-             <button
-            class="mt-4 w-full font-bold  rounded-full border border-primary/20
-             bg-gradient-to-br
-             from-background/20
-             via-background/40
-             to-secondary/10
-             px-6 py-3
-             text-sm font-semibold text-primary
-             shadow-xl shadow-primary/10
-             backdrop-blur-xl">
-            foods</button>
-             <button
-            class="mt-4 w-full font-bold rounded-full border border-primary/20
-             bg-gradient-to-br
-             from-background/20
-             via-background/40
-             to-secondary/10
-             px-6 py-3
-             text-sm font-semibold text-primary
-             shadow-xl shadow-primary/10
-             backdrop-blur-xl">
-            perfumes</button>
-                <button
-            class="mt-4 w-full font-bold rounded-full border border-primary/20
-             bg-gradient-to-br
-             from-background/20
-             via-background/40
-             to-secondary/10
-             px-6 py-3
-             text-sm font-semibold text-primary
-             shadow-xl shadow-primary/10
-             backdrop-blur-xl">
-            sweets</button>
-        </div>
-      </div>
-      </div>
+    <div>
       <div
-        class="relative z-10 flex w-full
-         items-center justify-center
-         lg:w-[50vw]"
-      >
-     <div class="w-full max-w-2xl">
-       <app-image-slider-animations [images]="homeImages"/>
-     </div>
+        class="bg-[url('/assets/logos/lavander.svg')]
+               shadow-xl bg-cover bg-[#FAFAFA]
+               bg-center bg-no-repeat
+               h-20 w-20
+               sm:h-30 sm:w-30
+               rounded-full">
       </div>
-      <div class="self-start flex flex-col  m-8 gap-6">
-        <p class="font-app text-primary rounded-2xl
-         border border-primary/20
-         bg-gradient-to-r
-         from-primary/10
-         via-background/70
-         to-primary/10
-         px-6 py-3
-         backdrop-blur-xl
-         shadow-lg w-fit">
+    </div>
+  </header>
+
+  <main   >
+
+    <div
+      class="flex flex-col
+             lg:flex-row
+             lg:justify-between
+             min-h-[68vh]
+             lg:h-[68vh]
+             rounded-[1rem]
+             lg:rounded-[1rem]
+             border border-primary/10
+             bg-gradient-to-br
+             bg-primary/50
+             px-4 py-6
+             sm:px-6 sm:py-10
+             m-3
+             sm:m-8
+             to-white/100
+             shadow-2xl shadow-primary/5
+             backdrop-blur-xl
+             lg:px-12
+             gap-8 lg:gap-0"
+    >
+
+      <!-- Categories -->
+      <div
+        class="self-center
+               lg:self-start
+               px-2 mx-2
+               bg-gradient-to-t
+               from-primary/30
+               via-background/40
+               to-background/30
+               rounded-[2vh]
+               h-full"
+               
+      >
+
+        <!-- Desktop circle / mobile smaller circle -->
+        <div
+          class="relative
+                 flex h-32 w-32
+                 sm:h-40 sm:w-40
+                 lg:h-56 lg:w-56
+                 items-center justify-center
+                 rounded-full
+                 border border-primary/20
+                 bg-gradient-to-br
+                 from-primary/20
+                 via-background/40
+                 to-secondary/10
+                 p-3
+                 shadow-xl shadow-primary/10
+                 backdrop-blur-xl"
+        >
+
+          <div
+            class="bg-[url('/assets/logos/gemini-svg.svg')]
+                   absolute
+                   inset-[7px]
+                   sm:inset-[9px]
+                   lg:inset-[11px]
+                   shadow-xl
+                   bg-cover bg-center bg-no-repeat
+                   border rounded-full border-primary"
+          >
+          </div>
+
+        </div>
+
+        <!-- Mobile: horizontal buttons
+             Desktop: original vertical buttons -->
+        <div
+          class="flex
+                 flex-wrap
+                 justify-center
+                 gap-2
+                 mt-4
+                 pb-3
+
+                 lg:absolute
+                 lg:top-66
+                 lg:w-56
+                 lg:flex-col
+                 lg:flex-nowrap
+                 lg:items-center
+                 lg:justify-center
+                 lg:gap-2
+                 lg:mt-0
+                 lg:pb-0"
+        >
+
+          <button
+            class="font-bold
+                   rounded-full
+                   border border-primary/20
+                   bg-gradient-to-br
+                   from-background/20
+                   via-background/40
+                   to-secondary/10
+                   px-4 py-2
+                   lg:px-6 lg:py-3
+                   lg:mt-4
+                   lg:w-full
+                   text-xs lg:text-sm
+                   font-semibold text-primary
+                   shadow-xl shadow-primary/10
+                   backdrop-blur-xl"
+          >
+            flowers
+          </button>
+
+          <button
+            class="font-bold
+                   rounded-full
+                   border border-primary/20
+                   bg-gradient-to-br
+                   from-background/20
+                   via-background/40
+                   to-secondary/10
+                   px-4 py-2
+                   lg:px-6 lg:py-3
+                   lg:mt-4
+                   lg:w-full
+                   text-xs lg:text-sm
+                   font-semibold text-primary
+                   shadow-xl shadow-primary/10
+                   backdrop-blur-xl"
+          >
+            foods
+          </button>
+
+          <button
+            class="font-bold
+                   rounded-full
+                   border border-primary/20
+                   bg-gradient-to-br
+                   from-background/20
+                   via-background/40
+                   to-secondary/10
+                   px-4 py-2
+                   lg:px-6 lg:py-3
+                   lg:mt-4
+                   lg:w-full
+                   text-xs lg:text-sm
+                   font-semibold text-primary
+                   shadow-xl shadow-primary/10
+                   backdrop-blur-xl"
+          >
+            perfumes
+          </button>
+
+          <button
+            class="font-bold
+                   rounded-full
+                   border border-primary/20
+                   bg-gradient-to-br
+                   from-background/20
+                   via-background/40
+                   to-secondary/10
+                   px-4 py-2
+                   lg:px-6 lg:py-3
+                   lg:mt-4
+                   lg:w-full
+                   text-xs lg:text-sm
+                   font-semibold text-primary
+                   shadow-xl shadow-primary/10
+                   backdrop-blur-xl"
+          >
+            sweets
+          </button>
+
+        </div>
+      </div>
+
+
+      <!-- Slider -->
+      <div
+        class="relative z-10
+               flex w-full
+               items-center justify-center
+               order-first lg:order-none
+               lg:w-[50vw]"
+      >
+        <div class="w-full max-w-2xl">
+          <app-image-slider-animations [images]="homeImages"/>
+        </div>
+      </div>
+
+
+      <!-- Right information -->
+      <div
+        class="self-stretch
+               lg:self-start
+               flex flex-col
+               mx-0
+               lg:m-8
+               gap-4 lg:gap-6"
+      >
+
+        <p
+          class="font-app text-primary
+                 rounded-2xl
+                 border border-primary/20
+                 bg-gradient-to-r
+                 from-primary/10
+                 via-background/70
+                 to-primary/10
+                 px-4 py-3
+                 lg:px-6
+                 backdrop-blur-xl
+                 shadow-lg
+                 w-full lg:w-fit
+                 text-center lg:text-left"
+        >
           @for (line of text().split('\n'); track $index) {
             <span class="block">{{ line }}</span>
           }
         </p>
+
+
+        <!-- Service Area -->
         <div
           class="bottom-6 right-6 z-20
-         w-full h-[50%]
-         rounded-3xl
-         border border-primary/20
-         bg-background/50
-         p-3
-         shadow-xl shadow-primary/10
-         backdrop-blur-xl"
+                 w-full
+                 lg:h-[50%]
+                 rounded-3xl
+                 border border-primary/20
+                 bg-background/50
+                 p-3
+                 shadow-xl shadow-primary/10
+                 backdrop-blur-xl"
         >
+
           <div class="mb-2 flex items-center justify-between">
-    <span
-      class="text-xs font-semibold
-             uppercase tracking-widest
-             text-primary"
-    >
-      Service Area
-    </span>
+            <span
+              class="text-xs font-semibold
+                     uppercase tracking-widest
+                     text-primary"
+            >
+              Service Area
+            </span>
 
             <span
               class="text-xs font-medium
-             text-secondary"
+                     text-secondary"
             >
-      New Jersey
-    </span>
+              New Jersey
+            </span>
           </div>
 
           <div
             class="overflow-hidden rounded-2xl
-           border border-primary/10
-           bg-primary/10"
+                   border border-primary/10
+                   bg-primary/10"
           >
             <img
               src="/assets/img/new-jersey.svg"
               alt="LeilaVie Events service area — New Jersey"
-              class="h-28 w-full object-contain"
+              class="h-24 sm:h-28 w-full object-contain"
             />
           </div>
 
           <p
             class="mt-2 text-center
-           text-xs text-primary/70"
+                   text-xs text-primary/70"
           >
             Serving all New Jersey
           </p>
+
         </div>
-        </div>
+
       </div>
+
+    </div>
+
   </main>
 </div>

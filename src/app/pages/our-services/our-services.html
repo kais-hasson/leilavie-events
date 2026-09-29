@@ -1,39 +1,154 @@
-<div class="bg-background h-full w-full flex flex-col items-start ">
-  <header>
-    <p>
-      Leilavie
-      Sweet sights, Sweet delights.
-      Events.Gifts.Flowers.Grazing.
-      Made with love 💕
-      Dm to order - NJ
-    </p>
-  </header>
-  <main class="flex flex-col gap-2 items-start w-full">
-    <div class="flex justify-between h-[70vh] w-full">
-      <div class="self start p-2 m-2">
-        <div class="bg-[url('/assets/logos/gemini-svg.svg')] bg-cover bg-center bg-no-repeat h-50 w-50 border rounded-full border-primary" >
-        </div>
-      </div>
-      <div  class="self-center w-[30%]">
-        <img src="assets/img/li.jpg"  class="h-100 w-50 border border-primary rounded-[30vh] backdrop-blur-xl"/>
-      </div>
-      <div class="self-end w-[40%] m-8 ">
-        <p class="font-app text-primary rounded-2xl
-         border border-primary/20
-         bg-gradient-to-r
-         from-primary/20
-         via-background/40
-         to-primary/10
-         px-6 py-3
-         backdrop-blur-xl
-         shadow-lg w-fit">
-          `Leilavie
-          Sweet sights, Sweet delights.
-          Events. Gifts. Flowers. Grazing.
-          Made with love 💕
-          Dm to order - NJ`,
-        </p>
+<div class="text-header bg-background font-bold h-full flex flex-col items-start">
+
+  <header class="flex justify-center items-center w-full px-4 sm:px-6">
+    <div class="flex flex-col items-center justify-center">
+      <p
+        class="text-[calc(var(--app-header-font-size)+1rem)]
+               sm:text-[calc(var(--app-header-font-size)+2rem)]
+               tracking-tight"
+      >
+       our services
+      </p>
+
+      <p class="text-sm sm:text-base">
+        Sweet sights, Sweet delights.
+      </p>
+    </div>
+
+    <div>
+      <div
+        class="bg-[url('/assets/logos/lavander.svg')]
+               shadow-xl bg-cover bg-[#FAFAFA]
+               bg-center bg-no-repeat
+               h-20 w-20
+               sm:h-30 sm:w-30
+               rounded-full">
       </div>
     </div>
+  </header>
+  <main class="w-full justify-center items-center gap-4 lg:gap-6 px-4 sm:px-6 py-6 sm:py-10">
+  
+   <div class="flex ">
+    <div>
+    <div
+        class="self-stretch
+               lg:self-start
+               flex flex-col
+               mx-0
+               lg:m-8
+               gap-4 lg:gap-6"
+      >
+
+        <p
+          class="font-app text-primary
+                 rounded-2xl
+                 border border-primary/20
+                 bg-gradient-to-r
+                 from-primary/10
+                 via-background/70
+                 to-primary/10
+                 px-4 py-3
+                 lg:px-6
+                 backdrop-blur-xl
+                 shadow-lg
+                 w-full lg:w-fit
+                 text-center lg:text-left"
+        >
+          @for (line of text().split('\n'); track $index) {
+            <span class="block">{{ line }}</span>
+          }
+        </p>
+      </div>
+       <div
+        class="self-stretch
+               lg:self-start
+               flex flex-col
+               mx-0
+               lg:m-8
+               gap-4 lg:gap-6"
+      >
+
+        <p
+          class="font-app text-primary
+                 rounded-2xl
+                 border border-primary/20
+                 bg-gradient-to-r
+                 from-primary/10
+                 via-background/70
+                 to-primary/10
+                 px-4 py-3
+                 lg:px-6
+                 backdrop-blur-xl
+                 shadow-lg
+                 w-full lg:w-fit
+                 text-center lg:text-left"
+        >
+          @for (line of text().split('\n'); track $index) {
+            <span class="block">{{ line }}</span>
+          }
+        </p>
+      </div>
+   </div>
+    <div class="flex flex-col">
+       <div
+        class="self-stretch
+               lg:self-start
+               flex flex-col
+               mx-0
+               lg:m-8
+               gap-4 lg:gap-6"
+      >
+
+        <p
+          class="font-app text-primary
+                 rounded-2xl
+                 border border-primary/20
+                 bg-gradient-to-r
+                 from-primary/10
+                 via-background/70
+                 to-primary/10
+                 px-4 py-3
+                 lg:px-6
+                 backdrop-blur-xl
+                 shadow-lg
+                 w-full lg:w-fit
+                 text-center lg:text-left"
+        >
+          @for (line of text().split('\n'); track $index) {
+            <span class="block">{{ line }}</span>
+          }
+        </p>
+      </div>
+      <div
+        class="self-stretch
+               lg:self-start
+               flex flex-col
+               mx-0
+               lg:m-8
+               gap-4 lg:gap-6"
+      >
+
+        <p
+          class="font-app text-primary
+                 rounded-2xl
+                 border border-primary/20
+                 bg-gradient-to-r
+                 from-primary/10
+                 via-background/70
+                 to-primary/10
+                 px-4 py-3
+                 lg:px-6
+                 backdrop-blur-xl
+                 shadow-lg
+                 w-full lg:w-fit
+                 text-center lg:text-left"
+        >
+          @for (line of text().split('\n'); track $index) {
+            <span class="block">{{ line }}</span>
+          }
+        </p>
+      </div>
+        </div>
+   </div>
   </main>
 </div>
