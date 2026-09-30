@@ -1,39 +1,110 @@
-<div class="bg-background h-full w-full flex flex-col items-start ">
-  <header>
-    <p>
-      Leilavie
-      Sweet sights, Sweet delights.
-      Events.Gifts.Flowers.Grazing.
-      Made with love 💕
-      Dm to order - NJ
-    </p>
-  </header>
-  <main class="flex flex-col gap-2 items-start w-full">
-    <div class="flex justify-between h-[70vh] w-full">
-      <div class="self start p-2 m-2">
-        <div class="bg-[url('/assets/logos/gemini-svg.svg')] bg-cover bg-center bg-no-repeat h-50 w-50 border rounded-full border-primary" >
-        </div>
-      </div>
-      <div  class="self-center w-[30%]">
-        <img src="assets/img/li.jpg"  class="h-100 w-50 border border-primary rounded-[30vh] backdrop-blur-xl"/>
-      </div>
-      <div class="self-end w-[40%] m-8 ">
-        <p class="font-app text-primary rounded-2xl
-         border border-primary/20
-         bg-gradient-to-r
-         from-primary/20
-         via-background/40
-         to-primary/10
-         px-6 py-3
-         backdrop-blur-xl
-         shadow-lg w-fit">
-          `Leilavie
-          Sweet sights, Sweet delights.
-          Events. Gifts. Flowers. Grazing.
-          Made with love 💕
-          Dm to order - NJ`,
-        </p>
+<div class="text-header bg-background bg-gradient-to-r to-primary/5 font-bold flex flex-col items-start">
+
+  <header class="flex justify-between items-center w-full px-4 sm:px-6">
+    <div>
+      <p
+        class="text-[calc(var(--app-header-font-size)+1rem)]
+               sm:text-[calc(var(--app-header-font-size)+2rem)]
+               tracking-tight"
+      >
+        About Leilavie
+      </p>
+
+      <p class="text-sm sm:text-base">
+        Sweet sights, Sweet delights.
+      </p>
+    </div>
+
+    <div>
+      <div
+        class="bg-[url('/assets/logos/lavander.svg')]
+               shadow-xl bg-cover bg-[#FAFAFA]
+               bg-center bg-no-repeat
+               h-20 w-20
+               sm:h-30 sm:w-30
+               rounded-full">
       </div>
     </div>
+  </header>
+
+
+  <main class="flex gap-3 flex-1">
+
+    <div
+      class="flex flex-col
+             lg:flex-row
+             lg:justify-between
+
+             min-h-[68vh]
+             lg:h-[68vh]
+
+             rounded-[1rem]
+             lg:rounded-[1rem]
+
+             border border-primary/10
+             bg-gradient-to-br
+             bg-primary/50
+
+             px-4 py-6
+             sm:px-6 sm:py-10
+
+             m-3
+             sm:m-8
+
+             w-full
+             min-w-0
+             lg:min-w-[90vw]
+
+             to-white/100
+             shadow-2xl shadow-primary/5
+             backdrop-blur-xl
+
+             lg:px-12
+
+             gap-8
+             lg:gap-0"
+    >
+
+      <!-- TEXT -->
+      <div class="flex flex-col w-full lg:w-auto">
+        @for (line of text().split('\n'); track $index) {
+          <span class="block">{{ line }}</span>
+        }
+      </div>
+
+
+      <!-- IMAGE -->
+      <div
+        class="h-[40vh]
+               relative right-0
+               
+               lg:min-h-[60vh]
+               lg:h-auto
+               lg:w-[20vw]
+               lg:right-[-8rem]
+
+               justify-self-end
+               p-3
+               lg:p-5
+
+               rounded-[1rem]
+               border border-primary/20
+               bg-gradient-to-r
+               bg-primary/20
+               shadow-xl shadow-primary/10
+               backdrop-blur-xl"
+      >
+
+        <img
+          src="/assets/img/li.jpg"
+          alt="image"
+          class="h-full w-full object-cover rounded-lg"
+        >
+
+      </div>
+
+    </div>
+
   </main>
+
 </div>

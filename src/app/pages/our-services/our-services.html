@@ -1,13 +1,14 @@
-<div class="text-header bg-background font-bold h-full flex flex-col items-start">
+<div class="text-header bg-background bg-gradient-to-r to-primary/5 font-bold flex flex-col items-start">
 
-  <header class="flex justify-center items-center w-full px-4 sm:px-6">
+  <!-- HEADER -->
+  <header class="flex justify-start items-center z-1 w-full px-4 sm:px-6">
     <div class="flex flex-col items-center justify-center">
       <p
         class="text-[calc(var(--app-header-font-size)+1rem)]
                sm:text-[calc(var(--app-header-font-size)+2rem)]
                tracking-tight"
       >
-       our services
+        our services
       </p>
 
       <p class="text-sm sm:text-base">
@@ -16,6 +17,7 @@
     </div>
 
     <div>
+      <!--
       <div
         class="bg-[url('/assets/logos/lavander.svg')]
                shadow-xl bg-cover bg-[#FAFAFA]
@@ -24,131 +26,174 @@
                sm:h-30 sm:w-30
                rounded-full">
       </div>
+      -->
     </div>
   </header>
-  <main class="w-full justify-center items-center gap-4 lg:gap-6 px-4 sm:px-6 py-6 sm:py-10">
-  
-   <div class="flex ">
-    <div>
+
+
+  <!-- BACKGROUND DECORATION -->
+  <div
+    class="h-[45vh] w-[70vw] right-[5vw]
+           lg:h-[80vh] lg:w-[30vw] lg:right-[3vw]
+           p-5 z-[0] absolute rounded-[1rem]
+           border border-primary/20
+           bg-gradient-to-r bg-primary/20 to-white/100
+           shadow-xl shadow-primary/10
+           backdrop-blur-xl">
+  </div>
+
+
+  <!-- LARGE IMAGE -->
+  <div
+    class="h-[28vh] w-[90vw] self-center right-0 top-[3vh]
+           lg:h-[40vh] lg:w-[70vw] lg:self-end lg:right-[20vw] lg:top-[10vh]
+           flex p-3 lg:p-5
+           rounded-[1rem] relative z-[0]
+           border border-primary/20
+           bg-gradient-to-r
+           shadow-xl shadow-primary/10
+           backdrop-blur-xl">
+
+    <img
+      src="/assets/img/li.jpg"
+      alt="image"
+      class="h-full w-full object-cover rounded-lg"
+    >
+  </div>
+
+
+  <!-- SERVICES -->
+  <main
+    class="flex gap-8 px-4 mt-16 pb-10
+           h-auto w-full flex-col
+           lg:gap-2 lg:px-0 lg:mt-0 lg:pb-0
+           lg:h-[20vh] lg:flex-row
+           flex-wrap justify-evenly items-center flex-1">
+
+
+    <!-- FLOWERS -->
     <div
-        class="self-stretch
-               lg:self-start
-               flex flex-col
-               mx-0
-               lg:m-8
-               gap-4 lg:gap-6"
-      >
+      class="relative h-[30vh] w-full
+             lg:h-[35vh] lg:w-auto lg:min-w-[20vw]
+             border border-primary/20 p-3 lg:p-5
+             rounded-[1rem]
+             bg-gradient-to-r bg-primary/20
+             shadow-xl shadow-primary/10
+             backdrop-blur-xl">
 
-        <p
-          class="font-app text-primary
-                 rounded-2xl
-                 border border-primary/20
-                 bg-gradient-to-r
-                 from-primary/10
-                 via-background/70
-                 to-primary/10
-                 px-4 py-3
-                 lg:px-6
-                 backdrop-blur-xl
-                 shadow-lg
-                 w-full lg:w-fit
-                 text-center lg:text-left"
-        >
-          @for (line of text().split('\n'); track $index) {
-            <span class="block">{{ line }}</span>
-          }
-        </p>
-      </div>
-       <div
-        class="self-stretch
-               lg:self-start
-               flex flex-col
-               mx-0
-               lg:m-8
-               gap-4 lg:gap-6"
-      >
-
-        <p
-          class="font-app text-primary
-                 rounded-2xl
-                 border border-primary/20
-                 bg-gradient-to-r
-                 from-primary/10
-                 via-background/70
-                 to-primary/10
-                 px-4 py-3
-                 lg:px-6
-                 backdrop-blur-xl
-                 shadow-lg
-                 w-full lg:w-fit
-                 text-center lg:text-left"
-        >
-          @for (line of text().split('\n'); track $index) {
-            <span class="block">{{ line }}</span>
-          }
-        </p>
-      </div>
-   </div>
-    <div class="flex flex-col">
-       <div
-        class="self-stretch
-               lg:self-start
-               flex flex-col
-               mx-0
-               lg:m-8
-               gap-4 lg:gap-6"
-      >
-
-        <p
-          class="font-app text-primary
-                 rounded-2xl
-                 border border-primary/20
-                 bg-gradient-to-r
-                 from-primary/10
-                 via-background/70
-                 to-primary/10
-                 px-4 py-3
-                 lg:px-6
-                 backdrop-blur-xl
-                 shadow-lg
-                 w-full lg:w-fit
-                 text-center lg:text-left"
-        >
-          @for (line of text().split('\n'); track $index) {
-            <span class="block">{{ line }}</span>
-          }
-        </p>
-      </div>
       <div
-        class="self-stretch
-               lg:self-start
-               flex flex-col
-               mx-0
-               lg:m-8
-               gap-4 lg:gap-6"
-      >
-
-        <p
-          class="font-app text-primary
-                 rounded-2xl
-                 border border-primary/20
-                 bg-gradient-to-r
-                 from-primary/10
-                 via-background/70
-                 to-primary/10
-                 px-4 py-3
-                 lg:px-6
-                 backdrop-blur-xl
-                 shadow-lg
-                 w-full lg:w-fit
-                 text-center lg:text-left"
-        >
-          @for (line of text().split('\n'); track $index) {
-            <span class="block">{{ line }}</span>
-          }
-        </p>
+        class="absolute z-1 flex
+               left-1/2 -translate-x-1/2 -top-5
+               lg:left-auto lg:translate-x-0 lg:justify-self-center lg:top-[-5vh]
+               border border-primary/30
+               px-5 py-2 lg:p-5
+               rounded-[1rem]
+               bg-gradient-to-r bg-primary/40
+               shadow-xl shadow-primary/10
+               backdrop-blur-xl w-fit">
+        flowers
       </div>
-        </div>
-   </div>
+
+      <img
+        src="/assets/img/img.png"
+        alt="image"
+        class="h-full w-full object-cover rounded-lg"
+      >
+    </div>
+
+
+    <!-- FOODS -->
+    <div
+      class="relative h-[30vh] w-full
+             lg:h-[35vh] lg:w-auto lg:min-w-[20vw]
+             border border-primary/20 p-3 lg:p-5
+             rounded-[1rem]
+             bg-gradient-to-r bg-primary/20
+             shadow-xl shadow-primary/10
+             backdrop-blur-xl">
+
+      <div
+        class="absolute z-1 flex
+               left-1/2 -translate-x-1/2 -top-5
+               lg:left-auto lg:translate-x-0 lg:justify-self-center lg:top-[-5vh]
+               border border-primary/30
+               px-5 py-2 lg:p-5
+               rounded-[1rem]
+               bg-gradient-to-r bg-primary/40
+               shadow-xl shadow-primary/10
+               backdrop-blur-xl w-fit">
+        foods
+      </div>
+
+      <img
+        src="/assets/img/2.jpg"
+        alt="image"
+        class="h-full w-full object-cover rounded-lg"
+      >
+    </div>
+
+
+    <!-- PERFUMES -->
+    <div
+      class="relative h-[30vh] w-full
+             lg:h-[35vh] lg:w-auto lg:min-w-[20vw]
+             border border-primary/20 p-3 lg:p-5
+             rounded-[1rem]
+             bg-gradient-to-r bg-primary/20
+             shadow-xl shadow-primary/10
+             backdrop-blur-xl">
+
+      <div
+        class="absolute z-1 flex
+               left-1/2 -translate-x-1/2 -top-5
+               lg:left-auto lg:translate-x-0 lg:justify-self-center lg:top-[-5vh]
+               border border-primary/30
+               px-5 py-2 lg:p-5
+               rounded-[1rem]
+               bg-gradient-to-r bg-primary/40
+               shadow-xl shadow-primary/10
+               backdrop-blur-xl w-fit">
+        perfumes
+      </div>
+
+      <img
+        src="/assets/img/li.jpg"
+        alt="image"
+        class="h-full w-full object-cover rounded-lg"
+      >
+    </div>
+
+
+    <!-- SWEETS -->
+    <div
+      class="relative h-[30vh] w-full
+             lg:h-[35vh] lg:w-auto lg:min-w-[20vw]
+             border border-primary/20 p-3 lg:p-5
+             rounded-[1rem]
+             bg-gradient-to-r bg-primary/20
+             shadow-xl shadow-primary/10
+             backdrop-blur-xl">
+
+      <div
+        class="absolute z-1 flex
+               left-1/2 -translate-x-1/2 -top-5
+               lg:left-auto lg:translate-x-0 lg:justify-self-center lg:top-[-5vh]
+               border border-primary/30
+               px-5 py-2 lg:p-5
+               rounded-[1rem]
+               bg-gradient-to-r bg-primary/40
+               shadow-xl shadow-primary/10
+               backdrop-blur-xl w-fit">
+        sweets
+      </div>
+
+      <img
+        src="/assets/img/3.jpg"
+        alt="image"
+        class="h-full w-full object-cover rounded-lg"
+      >
+    </div>
+
   </main>
+
 </div>
