@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
-import { SettingsService } from '../../../../../services/settings.service';
-import { ThemeService } from '../../../../../services/theme.service';
+import { SettingsService } from '../../../services/settings.service';
+import { ThemeService } from '../../../services/theme.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class Settings {
   private readonly router = inject(Router);
   readonly isOpen = signal(false);
   readonly navigationMode = this.settingsService.navigationMode;
-
+  readonly layout = this.settingsService.layout;
   readonly theme = this.themeService.theme;
   open(): void {
     this.isOpen.set(true);
@@ -30,15 +30,19 @@ export class Settings {
     this.settingsService.setNavigationMode(mode);
     if (mode === 'pages') {
       this.router.navigate(['/', currentSection]);
-    }
-    else {
+    } else {
       this.router.navigate(['/'], {
         fragment: currentSection,
       });
     }
   }
-  setTheme(themeName: 'default' | 'second' | 'third'): void {
+  setTheme(themeName: 'fourth' | 'second' | 'third' | 'default'): void {
     this.themeService.setTheme(themeName);
   }
+  setLayout(mode: 'leilavie' | 'public'): void {
+    const layout = this.settingsService.layout();
+    this.settingsService.setLayout(mode);
+     this.setNavigationMode(this.settingsService.navigationMode());
+  
+  }
 }
-

@@ -1,0 +1,62 @@
+<div class="text-header font-bold flex flex-col items-start">
+
+  <main   >
+
+    <div
+      class="relative z-10 flex flex-col overflow-hidden
+       bg-background
+       before:absolute before:inset-y-0 before:right-0 before:w-3/4
+       before:bg-[url('/assets/img/li.jpg')]
+       before:bg-cover before:bg-center before:bg-no-repeat
+       after:absolute after:inset-0 after:pointer-events-none
+       after:bg-gradient-to-r
+       after:from-background
+       after:via-primary/96
+       after:to-transparent
+       lg:flex-row lg:justify-between
+       min-h-[68vh] lg:h-[68vh]
+       rounded-[1rem]
+       border border-primary/10
+       px-4 py-6 sm:px-6 sm:py-10
+       m-3 sm:m-8 min-w-[94vw]
+       shadow-2xl shadow-primary/5
+       lg:px-12 gap-8 lg:gap-0"
+    >
+
+      <!-- Categories -->
+    <div
+        class="self-stretch
+               lg:self-start
+               flex flex-col
+               mx-0
+               lg:m-8
+               gap-4 lg:gap-6"      
+      >
+
+        <p
+          class="font-app z-11 text-secondary
+                 rounded-2xl
+                 border border-primary/20
+                 bg-gradient-to-r
+                 from-primary/10
+                 via-background/70
+                 to-primary/10
+                 px-4 py-3
+                 lg:px-6
+                 backdrop-blur-xl
+                 shadow-lg
+                 w-full lg:w-fit
+                 lg:min-w-[30vw]
+                  lg:min-h-[50vh]
+                 text-center lg:text-left"
+        >
+          @for (line of text().split('\n'); track $index) {
+            <span class="block">{{ line }}</span>
+          }
+        </p>
+
+      </div>
+    </div>
+
+  </main>
+</div>

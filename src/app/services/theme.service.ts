@@ -30,8 +30,12 @@ export class ThemeService {
     this.applyPalette(root, 'secondary', theme.secondary);
 
     root.style.setProperty('--app-background', theme.background);
+    root.style.setProperty('--app-background-image', theme.backgroundImage);
     root.style.setProperty('--app-text', theme.text);
+    root.style.setProperty('--app-button-text-color', theme.buttonTextColor);
     root.style.setProperty('--app-font-family', theme.fontFamily);
+    root.style.setProperty('--app-font-family-header', theme.fontFamilyHeader);
+    root.style.setProperty('--app-font-family-secondary', theme.fontFamilySecondary);
     root.style.setProperty('--app-font-size', theme.fontSize);
     root.style.setProperty('--app-header-font-size', theme.headerFontSize);
   }

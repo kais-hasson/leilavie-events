@@ -30,7 +30,11 @@
 
   --color-background: var(--app-background);
   --color-text: var(--app-text);
+  --color-text-button: var(--app-button-text-color);
+  --color-background-image: var(--app-background-image);
   --font-app: var(--app-font-family);
+  --font-app-header: var(--app-font-family-header);
+  --font-app-secondary: var(--app-font-family-secondary);
   --text-header: var(--app-header-font-size);
   --text-app: var(--app-font-size);
 }

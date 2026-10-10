@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
-import { ImageSliderAnimations } from '../../@shared/components/image-slider-animations/image-slider-animations';
+import { ImageSliderAnimations } from '../../../@shared/components/image-slider-animations/image-slider-animations';
 
 @Component({
   imports: [ImageSliderAnimations],
-  selector: 'app-home',
-  styleUrl: './home.scss',
-  templateUrl: './home.html',
+  selector: 'app-leilavie-home',
+  styleUrl: './leilavie-home.scss',
+  templateUrl: './leilavie-home.html',
 })
-export class Home {
+export class LeilavieHome {
   text = signal(
     `Leilavie
 Sweet sights, Sweet delights.

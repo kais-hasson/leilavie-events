@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Icon } from '../../@shared/components/icon/icon';
+import { Icon } from '../../../@shared/components/icon/icon';
 
 
 @Component({

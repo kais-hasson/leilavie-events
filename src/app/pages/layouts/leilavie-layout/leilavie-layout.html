@@ -1,0 +1,14 @@
+<div class="bg-background bg-gradient-to-r to-primary/5 h-[100vh]">
+<app-leilavie-header (settingsRequested)="openSettings()"/>
+
+<main class="h-[88vh] w-[99vw] relative top-25 font-app text-primary-800 text-app">
+  @if (navigationMode() === 'single-page') {
+    <app-leilavie-sections />
+  } @else {
+    <router-outlet />
+  }
+</main>
+
+<app-leilavie-footer/>
+<app-settings />
+</div>
