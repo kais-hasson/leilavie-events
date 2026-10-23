@@ -1,199 +1,94 @@
-<div class="text-header bg-background bg-gradient-to-r to-primary/5 font-bold flex flex-col items-start">
-
-  <!-- HEADER -->
-  <header class="flex justify-start items-center z-1 w-full px-4 sm:px-6">
-    <div class="flex flex-col items-center justify-center">
-      <p
-        class="text-[calc(var(--app-header-font-size)+1rem)]
-               sm:text-[calc(var(--app-header-font-size)+2rem)]
-               tracking-tight"
-      >
-        our services
-      </p>
-
-      <p class="text-sm sm:text-base">
-        Sweet sights, Sweet delights.
-      </p>
-    </div>
-
-    <div>
-      <!--
-      <div
-        class="bg-[url('/assets/logos/lavander.svg')]
-               shadow-xl bg-cover bg-[#FAFAFA]
-               bg-center bg-no-repeat
-               h-20 w-20
-               sm:h-30 sm:w-30
-               rounded-full">
-      </div>
-      -->
-    </div>
-  </header>
-
+<section class="relative flex h-full w-full flex-col justify-center overflow-hidden bg-background px-4 py-6 sm:px-6 sm:py-10">
 
   <!-- BACKGROUND DECORATION -->
   <div
-    class="h-[45vh] w-[70vw] right-[5vw]
-           lg:h-[80vh] lg:w-[30vw] lg:right-[3vw]
-           p-5 z-[0] absolute rounded-[1rem]
-           border border-primary/20
-           bg-gradient-to-r bg-primary/20 to-white/100
-           shadow-xl shadow-primary/10
-           backdrop-blur-xl">
+    class="pointer-events-none absolute -right-10 top-10 z-0 h-[35vh] w-[55vw]
+           rounded-[2rem] bg-gradient-to-br from-primary/40 to-transparent
+           opacity-60 blur-3xl
+           lg:-right-[5vw] lg:top-[5vh] lg:h-[55vh] lg:w-[28vw]">
   </div>
 
-
-  <!-- LARGE IMAGE -->
   <div
-    class="h-[28vh] w-[90vw] self-center right-0 top-[3vh]
-           lg:h-[40vh] lg:w-[70vw] lg:self-end lg:right-[20vw] lg:top-[10vh]
-           flex p-3 lg:p-5
-           rounded-[1rem] relative z-[0]
-           border border-primary/20
-           bg-gradient-to-r
-           shadow-xl shadow-primary/10
-           backdrop-blur-xl">
-
-    <img
-      src="/assets/img/li.jpg"
-      alt="image"
-      class="h-full w-full object-cover rounded-lg"
-    >
+    class="pointer-events-none absolute -left-10 bottom-0 z-0 h-[30vh] w-[50vw]
+           rounded-[2rem] bg-gradient-to-tr from-secondary/30 to-transparent
+           opacity-50 blur-3xl
+           lg:-left-[6vw] lg:bottom-[-5vh] lg:h-[45vh] lg:w-[24vw]">
   </div>
 
+  <div class="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-3 text-center">
+    <span
+      appScrollReveal
+      class="font-app text-xs font-semibold uppercase
+             tracking-[0.3em] text-secondary/70 sm:text-sm"
+      style="--reveal-delay: 60ms"
+    >
+      {{ eyebrow() }}
+    </span>
+    <h2
+      appScrollReveal
+      class="font-app-header text-3xl text-primary-900
+             sm:text-4xl lg:text-5xl"
+      style="--reveal-delay: 160ms"
+    >
+      {{ heading() }}
+    </h2>
+  </div>
 
-  <!-- SERVICES -->
-  <main
-    class="flex gap-8 px-4 mt-16 pb-10
-           h-auto w-full flex-col
-           lg:gap-2 lg:px-0 lg:mt-0 lg:pb-0
-           lg:h-[20vh] lg:flex-row
-           flex-wrap justify-evenly items-center flex-1">
-
-
-    <!-- FLOWERS -->
-    <div
-      class="relative h-[30vh] w-full
-             lg:h-[35vh] lg:w-auto lg:min-w-[20vw]
-             border border-primary/20 p-3 lg:p-5
-             rounded-[1rem]
-             bg-gradient-to-r bg-primary/20
-             shadow-xl shadow-primary/10
-             backdrop-blur-xl">
-
+  <div
+    class="relative z-10 mx-auto mt-4 grid max-w-6xl grid-cols-2 gap-x-4 gap-y-4
+           sm:mt-6 sm:grid-cols-3 sm:gap-y-6 lg:grid-cols-5"
+  >
+    @for (service of services(); track service.title; let index = $index) {
       <div
-        class="absolute z-1 flex
-               left-1/2 -translate-x-1/2 -top-5
-               lg:left-auto lg:translate-x-0 lg:justify-self-center lg:top-[-5vh]
-               border border-primary/30
-               px-5 py-2 lg:p-5
-               rounded-[1rem]
-               bg-gradient-to-r bg-primary/40
-               shadow-xl shadow-primary/10
-               backdrop-blur-xl w-fit">
-        flowers
-      </div>
-
-      <img
-        src="/assets/img/img.png"
-        alt="image"
-        class="h-full w-full object-cover rounded-lg"
+        appScrollReveal
+        class="group flex flex-col items-center gap-3 text-center"
+        [style.--reveal-delay]="(240 + index * 100) + 'ms'"
       >
-    </div>
+        <div class="relative">
+          <div
+            [ngClass]="index % 2 === 0
+              ? 'bg-gradient-to-br from-primary/50 via-secondary/20 to-transparent'
+              : 'bg-gradient-to-br from-secondary/40 via-primary/20 to-transparent'"
+            class="pointer-events-none absolute -inset-2 -z-10 rounded-2xl blur-xl
+                   transition-opacity duration-300
+                   opacity-60 group-hover:opacity-90"
+          ></div>
 
+          <div
+            class="h-32 w-32 overflow-hidden rounded-2xl border border-white/40
+                   bg-gradient-to-br from-secondary/30 via-background/40 to-primary/20
+                   p-2 shadow-lg shadow-primary/10 ring-1 ring-primary/10
+                   backdrop-blur-xl transition-all duration-300
+                   group-hover:scale-105 group-hover:shadow-xl
+                   group-hover:shadow-secondary/20
+                   sm:h-36 sm:w-36 lg:h-40 lg:w-40"
+          >
+            <img
+              [src]="service.image"
+              alt=""
+              class="h-full w-full rounded-xl object-cover transition-transform duration-500
+                     group-hover:scale-110"
+            />
+          </div>
+        </div>
 
-    <!-- FOODS -->
-    <div
-      class="relative h-[30vh] w-full
-             lg:h-[35vh] lg:w-auto lg:min-w-[20vw]
-             border border-primary/20 p-3 lg:p-5
-             rounded-[1rem]
-             bg-gradient-to-r bg-primary/20
-             shadow-xl shadow-primary/10
-             backdrop-blur-xl">
+        <p
+          class="font-app max-w-[10rem] text-sm font-medium text-primary-900
+                 transition-colors duration-200 group-hover:text-secondary
+                 sm:text-base"
+        >
+          {{ service.title }}
+        </p>
 
-      <div
-        class="absolute z-1 flex
-               left-1/2 -translate-x-1/2 -top-5
-               lg:left-auto lg:translate-x-0 lg:justify-self-center lg:top-[-5vh]
-               border border-primary/30
-               px-5 py-2 lg:p-5
-               rounded-[1rem]
-               bg-gradient-to-r bg-primary/40
-               shadow-xl shadow-primary/10
-               backdrop-blur-xl w-fit">
-        foods
+        <span
+          class="font-app text-secondary/70 transition-transform duration-200
+                 group-hover:translate-x-1"
+          aria-hidden="true"
+        >
+          →
+        </span>
       </div>
+    }
+  </div>
 
-      <img
-        src="/assets/img/2.jpg"
-        alt="image"
-        class="h-full w-full object-cover rounded-lg"
-      >
-    </div>
-
-
-    <!-- PERFUMES -->
-    <div
-      class="relative h-[30vh] w-full
-             lg:h-[35vh] lg:w-auto lg:min-w-[20vw]
-             border border-primary/20 p-3 lg:p-5
-             rounded-[1rem]
-             bg-gradient-to-r bg-primary/20
-             shadow-xl shadow-primary/10
-             backdrop-blur-xl">
-
-      <div
-        class="absolute z-1 flex
-               left-1/2 -translate-x-1/2 -top-5
-               lg:left-auto lg:translate-x-0 lg:justify-self-center lg:top-[-5vh]
-               border border-primary/30
-               px-5 py-2 lg:p-5
-               rounded-[1rem]
-               bg-gradient-to-r bg-primary/40
-               shadow-xl shadow-primary/10
-               backdrop-blur-xl w-fit">
-        perfumes
-      </div>
-
-      <img
-        src="/assets/img/li.jpg"
-        alt="image"
-        class="h-full w-full object-cover rounded-lg"
-      >
-    </div>
-
-
-    <!-- SWEETS -->
-    <div
-      class="relative h-[30vh] w-full
-             lg:h-[35vh] lg:w-auto lg:min-w-[20vw]
-             border border-primary/20 p-3 lg:p-5
-             rounded-[1rem]
-             bg-gradient-to-r bg-primary/20
-             shadow-xl shadow-primary/10
-             backdrop-blur-xl">
-
-      <div
-        class="absolute z-1 flex
-               left-1/2 -translate-x-1/2 -top-5
-               lg:left-auto lg:translate-x-0 lg:justify-self-center lg:top-[-5vh]
-               border border-primary/30
-               px-5 py-2 lg:p-5
-               rounded-[1rem]
-               bg-gradient-to-r bg-primary/40
-               shadow-xl shadow-primary/10
-               backdrop-blur-xl w-fit">
-        sweets
-      </div>
-
-      <img
-        src="/assets/img/3.jpg"
-        alt="image"
-        class="h-full w-full object-cover rounded-lg"
-      >
-    </div>
-
-  </main>
-
-</div>
+</section>

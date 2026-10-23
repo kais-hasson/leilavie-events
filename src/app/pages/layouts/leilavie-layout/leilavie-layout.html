@@ -1,11 +1,19 @@
-<div class="bg-background bg-gradient-to-r to-primary/5 h-[100vh]">
+<div class="flex min-h-screen w-full flex-col bg-background bg-gradient-to-r to-primary/5">
 <app-leilavie-header (settingsRequested)="openSettings()"/>
 
-<main class="h-[88vh] w-[99vw] relative top-25 font-app text-primary-800 text-app">
+<main
+  class="flex w-[99vw] flex-col self-center pt-[calc(var(--app-header-height,6rem)+1.5rem)] font-app text-primary-800 text-app"
+  [class.min-h-screen]="navigationMode() === 'single-page'"
+  [class.overflow-hidden]="navigationMode() !== 'single-page'"
+  [style.height]="navigationMode() !== 'single-page'
+    ? 'calc(100vh - var(--app-footer-height, 3rem))'
+    : null"
+>
+  <div [hidden]="navigationMode() === 'single-page'" class="flex min-h-0 flex-1 flex-col">
+    <router-outlet />
+  </div>
   @if (navigationMode() === 'single-page') {
     <app-leilavie-sections />
-  } @else {
-    <router-outlet />
   }
 </main>
 

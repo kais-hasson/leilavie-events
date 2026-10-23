@@ -1,62 +1,110 @@
-<div class="text-header font-bold flex flex-col items-start">
+<section
+  class="relative isolate flex w-full flex-col justify-center overflow-hidden bg-background"
+  [class.h-full]="navigationMode() !== 'single-page'"
+>
 
-  <main   >
+  <!-- BACKGROUND DECORATION -->
+  <div
+    class="pointer-events-none absolute z-0
+           h-[40vh] w-[60vw] -right-10 top-10
+           lg:h-[70vh] lg:w-[35vw] lg:right-[-5vw] lg:top-[5vh]
+           rounded-[2rem]
+           bg-gradient-to-br from-primary/40 to-transparent
+           blur-3xl opacity-70">
+  </div>
 
-    <div
-      class="relative z-10 flex flex-col overflow-hidden
-       bg-background
-       before:absolute before:inset-y-0 before:right-0 before:w-3/4
-       before:bg-[url('/assets/img/li.jpg')]
-       before:bg-cover before:bg-center before:bg-no-repeat
-       after:absolute after:inset-0 after:pointer-events-none
-       after:bg-gradient-to-r
-       after:from-background
-       after:via-primary/96
-       after:to-transparent
-       lg:flex-row lg:justify-between
-       min-h-[68vh] lg:h-[68vh]
-       rounded-[1rem]
-       border border-primary/10
-       px-4 py-6 sm:px-6 sm:py-10
-       m-3 sm:m-8 min-w-[94vw]
-       shadow-2xl shadow-primary/5
-       lg:px-12 gap-8 lg:gap-0"
-    >
+  <div
+    class="pointer-events-none absolute z-0
+           h-[30vh] w-[45vw] -left-16 bottom-0
+           lg:h-[50vh] lg:w-[22vw] lg:left-[-6vw] lg:bottom-[-5vh]
+           rounded-[2rem]
+           bg-gradient-to-tr from-secondary/30 to-transparent
+           blur-3xl opacity-60">
+  </div>
 
-      <!-- Categories -->
-    <div
-        class="self-stretch
-               lg:self-start
-               flex flex-col
-               mx-0
-               lg:m-8
-               gap-4 lg:gap-6"      
+  <div
+    [ngClass]="navigationMode() === 'single-page'
+      ? 'gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:gap-16 lg:px-10 lg:py-20'
+      : 'gap-5 px-4 py-4 sm:gap-8 sm:px-6 sm:py-6 lg:gap-10 lg:px-10 lg:py-8'"
+    class="relative z-10 mx-auto grid h-full w-full max-w-7xl lg:grid-cols-2 lg:items-center"
+  >
+
+    <!-- TEXT + CTA -->
+    <div class="flex flex-col items-center gap-5 text-center lg:items-start lg:text-left">
+
+      <span
+        appScrollReveal
+        class="font-app text-xs font-semibold uppercase
+               tracking-[0.3em] text-secondary/70 sm:text-sm"
+        style="--reveal-delay: 60ms"
       >
+        {{ eyebrow() }}
+      </span>
 
-        <p
-          class="font-app z-11 text-secondary
-                 rounded-2xl
-                 border border-primary/20
-                 bg-gradient-to-r
-                 from-primary/10
-                 via-background/70
-                 to-primary/10
-                 px-4 py-3
-                 lg:px-6
-                 backdrop-blur-xl
-                 shadow-lg
-                 w-full lg:w-fit
-                 lg:min-w-[30vw]
-                  lg:min-h-[50vh]
-                 text-center lg:text-left"
+      <h1
+        appScrollReveal
+        class="font-app-header text-4xl leading-[1.1]
+               text-primary-900 sm:text-5xl lg:text-6xl"
+        style="--reveal-delay: 160ms"
+      >
+        @for (line of heading(); track line) {
+          <span class="block">{{ line }}</span>
+        }
+      </h1>
+
+      <p
+        appScrollReveal
+        class="font-app max-w-md text-sm leading-relaxed
+               text-secondary/80 sm:text-base"
+        style="--reveal-delay: 260ms"
+      >
+        {{ description() }}
+      </p>
+
+      <div
+        appScrollReveal
+        class="flex flex-wrap items-center justify-center
+               gap-4 pt-2 lg:justify-start"
+        style="--reveal-delay: 360ms"
+      >
+        <a
+          routerLink="/our-services"
+          class="group font-app inline-flex items-center gap-2 rounded-full
+                 bg-gradient-to-r from-secondary via-secondary to-primary-700
+                 px-7 py-3 text-xs font-semibold uppercase
+                 tracking-wider text-text-button shadow-lg shadow-secondary/20
+                 backdrop-blur-xl transition-all duration-200
+                 hover:scale-105 hover:shadow-xl hover:shadow-secondary/30"
         >
-          @for (line of text().split('\n'); track $index) {
-            <span class="block">{{ line }}</span>
-          }
-        </p>
+          Explore Our Services
+          <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
+        </a>
 
+        <a
+          routerLink="/contact-us"
+          class="font-app text-xs font-semibold uppercase tracking-wider
+                 text-secondary underline-offset-4
+                 transition-all duration-200
+                 hover:scale-105 hover:text-primary-900 hover:underline"
+        >
+          Get in Touch
+        </a>
       </div>
     </div>
 
-  </main>
-</div>
+    <!-- IMAGE SLIDER -->
+    <div
+      appScrollReveal
+      class="reveal-scale relative flex items-center justify-center"
+      style="--reveal-delay: 220ms"
+    >
+      <div
+        class="pointer-events-none absolute h-3/4 w-3/4 rounded-full
+               bg-gradient-to-br from-primary/50 via-secondary/20 to-transparent blur-3xl">
+      </div>
+      <app-image-slider-animations [images]="homeImages" class="relative w-full" />
+    </div>
+
+  </div>
+
+</section>

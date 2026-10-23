@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { SettingsService } from '../../../services/settings.service';
 import { ThemeService } from '../../../services/theme.service';
 import { Router } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [NgClass],
   selector: 'app-settings',
   styleUrl: './settings.scss',
   templateUrl: './settings.html',
@@ -17,6 +18,7 @@ export class Settings {
   readonly navigationMode = this.settingsService.navigationMode;
   readonly layout = this.settingsService.layout;
   readonly theme = this.themeService.theme;
+  readonly themeName = this.themeService.themeName;
   open(): void {
     this.isOpen.set(true);
   }
@@ -26,23 +28,35 @@ export class Settings {
   }
 
   setNavigationMode(mode: 'single-page' | 'pages'): void {
-    const currentSection = this.settingsService.currentSection();
-    this.settingsService.setNavigationMode(mode);
+    const previousMode = this.settingsService.navigationMode();
     if (mode === 'pages') {
-      this.router.navigate(['/', currentSection]);
+      const currentSection = this.settingsService.currentSection();
+      this.settingsService.setNavigationMode(mode);
+      this.router.navigate(['/', currentSection], { onSameUrlNavigation: 'reload' });
     } else {
-      this.router.navigate(['/'], {
-        fragment: currentSection,
-      });
+      const targetSection =
+        previousMode === 'pages'
+          ? this.currentRouteSection()
+          : this.settingsService.currentSection();
+      this.settingsService.setNavigationMode(mode);
+      this.settingsService.setCurrentSection(targetSection);
+      this.router
+        .navigate(['/'], { fragment: targetSection, onSameUrlNavigation: 'reload' })
+        .then(() => {
+          document.getElementById(targetSection)?.scrollIntoView();
+        });
     }
+  }
+
+  private currentRouteSection(): string {
+    const path = this.router.url.split(/[?#]/)[0].replace(/^\/+/, '');
+    return path || 'home';
   }
   setTheme(themeName: 'fourth' | 'second' | 'third' | 'default'): void {
     this.themeService.setTheme(themeName);
   }
   setLayout(mode: 'leilavie' | 'public'): void {
-    const layout = this.settingsService.layout();
     this.settingsService.setLayout(mode);
-     this.setNavigationMode(this.settingsService.navigationMode());
-  
+    this.setNavigationMode(this.settingsService.navigationMode());
   }
 }

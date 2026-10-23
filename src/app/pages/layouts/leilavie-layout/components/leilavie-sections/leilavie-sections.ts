@@ -1,6 +1,14 @@
-import { AfterViewInit, Component, ElementRef, inject, PLATFORM_ID } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DestroyRef,
+  ElementRef,
+  inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { SettingsService } from '../../../../../services/settings.service';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 import { LeilavieAbout } from '../../../../leilavie-layout-component/leilavie-about/leilavie-about';
 import { LeilavieContactUs } from '../../../../leilavie-layout-component/leilavie-contact-us/leilavie-contact-us';
 import { LeilavieOurServices } from '../../../../leilavie-layout-component/leilavie-our-services/leilavie-our-services';
@@ -15,33 +23,51 @@ export class LeilavieSections implements AfterViewInit {
   private readonly settingsService = inject(SettingsService);
   private readonly elementRef = inject(ElementRef);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly router = inject(Router);
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
 
-    const sections = this.elementRef.nativeElement.querySelectorAll('section');
+    const sections: Element[] = Array.from(
+      this.elementRef.nativeElement.querySelectorAll('section'),
+    );
+    const ratios = new Map<Element, number>();
+    let lastSectionId: string | null = null;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleSection = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        for (const entry of entries) {
+          ratios.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0);
+        }
 
-        if (visibleSection) {
-          this.settingsService.setCurrentSection(visibleSection.target.id);
+        let bestSection: Element | null = null;
+        let bestRatio = 0;
+        for (const section of sections) {
+          const ratio = ratios.get(section) ?? 0;
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestSection = section;
+          }
+        }
 
-          console.log('Current section:', visibleSection.target.id);
+        if (bestSection && bestSection.id !== lastSectionId) {
+          lastSectionId = bestSection.id;
+          this.settingsService.setCurrentSection(bestSection.id);
+          this.router.navigate([], {
+            fragment: bestSection.id,
+            replaceUrl: true,
+          });
         }
       },
       {
-        threshold: [0.25, 0.5, 0.75],
+        threshold: [0, 0.25, 0.5, 0.75, 1],
       },
     );
 
-    sections.forEach((section: Element) => {
-      observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
+    this.destroyRef.onDestroy(() => observer.disconnect());
   }
 }

@@ -1,107 +1,110 @@
-<header class="h-[8vh] fixed w-[98vw] top-2 z-30 p-2 my-1 mx-2 self-center flex items-center justify-between rounded-xl backdrop-blur-xl
-    border
-    border-white/20 bg-primary/20 font-app text-primary-800 shadow-md
+<header #headerRoot class="fixed top-2 inset-x-0 z-30 mx-auto w-[98vw]">
+  <div
+    class="flex w-full flex-col gap-3 rounded-xl border border-white/20
+           bg-gradient-to-r from-primary/30 via-background/40 to-secondary/20
+           px-4 py-3 font-app text-primary-800 shadow-lg shadow-primary/10
+           backdrop-blur-xl sm:px-6 sm:py-4"
+  >
 
-    max-md:h-auto
-    max-md:min-h-[8vh]
-    max-md:flex-wrap
-    max-md:px-3
-    max-md:py-2">
-  <nav class="w-[90vw]  flex items-center text-header justify-center gap-4
+    <!-- DESKTOP ROW -->
+    <div class="hidden w-full items-center justify-between lg:flex">
 
-              max-md:order-3
-              max-md:w-full
-              max-md:gap-1
-              max-md:justify-between">
+      <nav class="flex flex-1 items-center justify-start gap-4">
+        @for (item of leftMenuItems; track item.id) {
+          <ng-container *ngTemplateOutlet="navLink; context: { $implicit: item }" />
+        }
+      </nav>
 
-    @for (item of headerMenuItems; track item.id; let index=$index) {
-        
-      @if (navigationMode() === 'single-page') {
-@if(headerMenuItems.length/2 ===index) {
-          <div class="brand text-header text-center max-md:flex-1">
-              <h1>
-                Leilave Events
-              </h1>
-              <h4>
-              Sweet sights, Sweet delights.
-              </h4>
-            </div>
+      <a routerLink="/home" class="flex shrink-0 flex-col items-center gap-0.5 px-4">
+        <span class="font-app-header text-2xl tracking-[0.15em]">
+          Leilavie
+        </span>
+        <span class="text-[10px] font-semibold uppercase tracking-[0.3em] text-secondary/60">
+          Sweet sights, Sweet delights
+        </span>
+      </a>
+
+      <div class="flex flex-1 items-center justify-end gap-4">
+        <nav class="flex items-center gap-4">
+          @for (item of rightMenuItems; track item.id) {
+            <ng-container *ngTemplateOutlet="navLink; context: { $implicit: item }" />
           }
-        <a
-          [ngClass]="{
-            'bg-background/80 text-primary border-primary-900/30': activeSection() === item.sectionId,
-          }"
+        </nav>
 
-          class="flex flex-1 items-center justify-center
-         m-3 px-2 py-1
-         rounded-xl
-         bg-background/20
-         backdrop-blur-xl
-         border border-primary/20
-         hover:bg-background/60
-         hover:border-primary-900/30
-         shadow-lg
-         transition-all duration-200
+        <button
+          type="button"
+          (click)="openSettings()"
+          aria-label="Open settings"
+          class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full
+                 border border-white/30 bg-gradient-to-br from-primary/40
+                 via-background/40 to-secondary/30 text-2xl shadow-sm
+                 backdrop-blur-xl transition-all duration-200
+                 hover:rotate-45 hover:shadow-md hover:shadow-secondary/20"
+        >
+          ⚙️
+        </button>
+      </div>
+    </div>
 
-         max-md:m-1
-         max-md:px-1
-         max-md:py-1
-         max-md:text-sm
-         max-md:whitespace-nowrap"
+    <!-- MOBILE ROW: brand + settings -->
+    <div class="flex w-full items-center justify-between lg:hidden">
+      <span class="h-14 w-14 shrink-0"></span>
 
-          (click)="setActiveSection(item.sectionId)"
-          [href]="'#'+item.sectionId">
-          
-          {{ item.title }}
+      <a routerLink="/home" class="flex flex-col items-center gap-0.5">
+        <span class="font-app-header text-lg tracking-[0.1em] sm:text-xl">
+          Leilavie
+        </span>
+      </a>
 
-        </a>
+      <button
+        type="button"
+        (click)="openSettings()"
+        aria-label="Open settings"
+        class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full
+               border border-white/30 bg-gradient-to-br from-primary/40
+               via-background/40 to-secondary/30 text-xl shadow-sm
+               backdrop-blur-xl transition-all duration-200
+               hover:rotate-45"
+      >
+        ⚙️
+      </button>
+    </div>
 
-      } @else {
-
-        <a
-          class="flex flex-1 items-center justify-center
-         m-3 px-2 py-1
-         rounded-xl
-         bg-background/20
-         backdrop-blur-xl
-         border border-primary/20
-         hover:bg-background/50
-         hover:border-primary-900/30
-         shadow-lg
-         transition-all duration-200
-
-         max-md:m-1
-         max-md:px-1
-         max-md:py-1
-         max-md:text-sm
-         max-md:whitespace-nowrap"
-
-          [ngClass]="{
-            'bg-background/80 text-primary border-primary-900/30': activeSection() === item.sectionId,
-          }"
-
-          routerLinkActive="active"
-          (click)="setActiveSection(item.sectionId)"
-          [routerLink]="item.route">
-
-          {{ item.title }}
-
-        </a>
-
+    <!-- MOBILE NAV -->
+    <nav class="flex w-full flex-wrap items-center justify-center gap-2 lg:hidden">
+      @for (item of headerMenuItems; track item.id) {
+        <ng-container *ngTemplateOutlet="navLink; context: { $implicit: item }" />
       }
+    </nav>
 
-    }
-
-  </nav>
-
-  <div class="actions">
-    <button
-      type="button"
-      (click)="openSettings()"
-      aria-label="Open settings"
-    >
-      ⚙️
-    </button>
   </div>
-
 </header>
+
+<ng-template #navLink let-item>
+  @if (navigationMode() === 'single-page') {
+    <a
+      [ngClass]="activeSection() === item.sectionId
+        ? 'bg-gradient-to-r from-primary/40 to-secondary/20 text-secondary font-semibold shadow-sm'
+        : 'text-primary-800/70 hover:bg-background/30'"
+      class="rounded-full px-6 py-3.5 text-base font-medium backdrop-blur-xl
+             transition-all duration-200 hover:text-secondary"
+      (click)="setActiveSection(item.sectionId)"
+      [href]="'#' + item.sectionId"
+    >
+      {{ item.title }}
+    </a>
+  } @else {
+    <a
+      [ngClass]="activeSection() === item.sectionId
+        ? 'bg-gradient-to-r from-primary/40 to-secondary/20 text-secondary font-semibold shadow-sm'
+        : 'text-primary-800/70 hover:bg-background/30'"
+      class="rounded-full px-6 py-3.5 text-base font-medium backdrop-blur-xl
+             transition-all duration-200 hover:text-secondary"
+      routerLinkActive="bg-gradient-to-r from-primary/40 to-secondary/20 text-secondary font-semibold shadow-sm"
+      (click)="setActiveSection(item.sectionId)"
+      [routerLink]="item.route"
+    >
+      {{ item.title }}
+    </a>
+  }
+</ng-template>

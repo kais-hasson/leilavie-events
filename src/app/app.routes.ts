@@ -13,6 +13,16 @@ export const routes: Routes = [
     component: Layout,
     children: [
       {
+      path: '',
+      canMatch: [publicLayout],
+        loadComponent: () => import('./pages/public-layout-components/home/home').then(m => m.Home)
+    },
+      {
+      path: '',
+      canMatch: [leilavieLayout],
+        loadComponent: () => import('./pages/leilavie-layout-component/leilavie-home/leilavie-home').then(m => m.LeilavieHome)
+    },
+      {
       path: 'home',
       canMatch: [publicLayout],
         loadComponent: () => import('./pages/public-layout-components/home/home').then(m => m.Home)

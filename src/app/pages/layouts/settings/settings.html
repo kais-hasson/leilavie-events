@@ -1,21 +1,25 @@
 @if (isOpen()) {
   <div
-    class="fixed inset-0 z-40 bg-black/30"
+    class="fade-in fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
     (click)="close()"
   ></div>
 
   <aside
-    class="fixed top-0 right-0 z-50 h-full w-80  border
-    border-white/20 bg-primary/20 font-app text-primary-80 shadow-xl"
+    class="fixed top-0 right-0 z-50 flex h-full w-80 max-w-[90vw] flex-col
+    overflow-y-auto border-l border-white/20 bg-primary/20 font-app
+    text-primary-800 shadow-2xl backdrop-blur-xl"
   >
-    <div class="flex items-center justify-between border-b border-primary-100 p-4">
-      <h2 class="text-xl font-semibold">
+    <div class="sticky top-0 z-10 flex items-center justify-between
+      border-b border-white/20 bg-primary/30 px-5 py-4 backdrop-blur-xl">
+      <h2 class="text-xl font-semibold tracking-wide">
         Settings
       </h2>
 
       <button
         type="button"
-        class="text-2xl"
+        class="flex h-8 w-8 items-center justify-center rounded-full border
+        border-white/20 bg-background/20 text-lg leading-none shadow-sm
+        transition-all duration-200 hover:rotate-90 hover:bg-background/50"
         (click)="close()"
         aria-label="Close settings"
       >
@@ -23,54 +27,132 @@
       </button>
     </div>
 
-    <div class="p-4 flex flex-col">
-      <h3 class="mb-3 font-medium">
-        Theme
-      </h3>
-      <div class="flex gap-2 flex-1 align-center h-[4vh] w-full">
-        <button (click)="setTheme('default')"
-                class="bg-[#6B5282] border p-1
-    border-white/20 cursor-pointer rounded-xl text-[#FAFAFA]"
-        >#6B5282
-        </button>
-        <button (click)="setTheme('second')"
-                class="bg-[#7A8B7B] border p-1
-    border-white/20 cursor-pointer rounded-xl text-[#FAFAFA]"
-        >#7A8B7B
-        </button>
-        <button (click)="setTheme('third')"
-                class="bg-[#FFF9FA] border p-1
-    border-white/20 cursor-pointer rounded-xl text-[#6B5282]"
-        >#FFF9FA
-        </button>
-         <button (click)="setTheme('fourth')"
-                class="bg-[#FDD7E4] border p-1
-    border-white/20 cursor-pointer rounded-xl text-[#6B5282]"
-        >#FDD7E4
-        </button>
-      </div>
+    <div class="flex flex-col gap-8 p-5">
+      <section>
+        <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-700">
+          Theme
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          <button
+            type="button"
+            (click)="setTheme('default')"
+            aria-label="Default theme"
+            class="h-10 w-10 cursor-pointer rounded-full border-2 bg-[#FDD7E4]
+            shadow-md transition-all duration-200 hover:scale-110"
+            [ngClass]="themeName() === 'default'
+              ? 'border-white ring-2 ring-primary-900/60 scale-110'
+              : 'border-white/30'"
+          ></button>
+          <button
+            type="button"
+            (click)="setTheme('second')"
+            aria-label="Second theme"
+            class="h-10 w-10 cursor-pointer rounded-full border-2 bg-[#7A8B7B]
+            shadow-md transition-all duration-200 hover:scale-110"
+            [ngClass]="themeName() === 'second'
+              ? 'border-white ring-2 ring-primary-900/60 scale-110'
+              : 'border-white/30'"
+          ></button>
+          <button
+            type="button"
+            (click)="setTheme('third')"
+            aria-label="Third theme"
+            class="h-10 w-10 cursor-pointer rounded-full border-2 bg-[#FFF9FA]
+            shadow-md transition-all duration-200 hover:scale-110"
+            [ngClass]="themeName() === 'third'
+              ? 'border-white ring-2 ring-primary-900/60 scale-110'
+              : 'border-white/30'"
+          ></button>
+          <button
+            type="button"
+            (click)="setTheme('fourth')"
+            aria-label="Fourth theme"
+            class="h-10 w-10 cursor-pointer rounded-full border-2  bg-[#6B5282] 
+            shadow-md transition-all duration-200 hover:scale-110"
+            [ngClass]="themeName() === 'fourth'
+              ? 'border-white ring-2 ring-primary-900/60 scale-110'
+              : 'border-white/30'"
+          ></button>
+        </div>
+      </section>
 
+      <section>
+        <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-700">
+          Pages style
+        </h3>
+        <div class="grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            (click)="setNavigationMode('single-page')"
+            class="group relative h-28 overflow-hidden rounded-xl border
+            bg-[url('/assets/img/single-page.jpg')] bg-cover bg-center
+            bg-no-repeat shadow-md transition-all duration-200 hover:scale-[1.03]"
+            [ngClass]="navigationMode() === 'single-page'
+              ? 'border-white ring-2 ring-primary-900/60'
+              : 'border-white/20'"
+          >
+            <span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70
+              to-transparent px-2 py-2 text-sm font-medium text-white">
+              Single Page
+            </span>
+          </button>
 
-      <!-- Theme options will be added here -->
-      <h3 class="mb-3 font-medium">
-        Pages style
-      </h3>
-      <div class="flex flex-col gap-2 flex-1 align-center h-[4vh] w-full">
-        <button class="bg-[url('/assets/img/single-page.jpg')] rounded-xl h-50 w-50 shadow-xl bg-cover bg-center bg-no-repeat" (click)="setNavigationMode('single-page')" [class.font-semibold]="navigationMode() === 'single-page'">
-          Single Page
-        </button>
-        <button class="bg-[url('/assets/img/pages.jpg')] shadow-xl rounded-xl h-50 w-50 bg-cover bg-center bg-no-repeat"  (click)="setNavigationMode('pages')" [class.font-semibold]="navigationMode() === 'pages'">Pages</button>
-      </div>
-       <!-- Theme options will be added here -->
-      <h3 class="mb-3 font-medium">
-        Pages Layout
-      </h3>
-      <div class="flex flex-col gap-2 flex-1 align-center h-[4vh] w-full">
-        <button class="bg-[url('/assets/img/single-page.jpg')] rounded-xl h-50 w-50 shadow-xl bg-cover bg-center bg-no-repeat" (click)="setLayout('leilavie')" [class.font-semibold]="layout() === 'leilavie'">
-          leilavie Page
-        </button>
-        <button class="bg-[url('/assets/img/pages.jpg')] shadow-xl rounded-xl h-50 w-50 bg-cover bg-center bg-no-repeat"  (click)="setLayout('public')" [class.font-semibold]="layout() === 'public'">Public Page</button>
-      </div>
+          <button
+            type="button"
+            (click)="setNavigationMode('pages')"
+            class="group relative h-28 overflow-hidden rounded-xl border
+            bg-[url('/assets/img/pages.jpg')] bg-cover bg-center bg-no-repeat
+            shadow-md transition-all duration-200 hover:scale-[1.03]"
+            [ngClass]="navigationMode() === 'pages'
+              ? 'border-white ring-2 ring-primary-900/60'
+              : 'border-white/20'"
+          >
+            <span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70
+              to-transparent px-2 py-2 text-sm font-medium text-white">
+              Pages
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-700">
+          Pages layout
+        </h3>
+        <div class="grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            (click)="setLayout('leilavie')"
+            class="group relative h-28 overflow-hidden rounded-xl border
+            bg-[url('/assets/img/single-page.jpg')] bg-cover bg-center
+            bg-no-repeat shadow-md transition-all duration-200 hover:scale-[1.03]"
+            [ngClass]="layout() === 'leilavie'
+              ? 'border-white ring-2 ring-primary-900/60'
+              : 'border-white/20'"
+          >
+            <span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70
+              to-transparent px-2 py-2 text-sm font-medium text-white">
+              Leilavie
+            </span>
+          </button>
+
+          <button
+            type="button"
+            (click)="setLayout('public')"
+            class="group relative h-28 overflow-hidden rounded-xl border
+            bg-[url('/assets/img/pages.jpg')] bg-cover bg-center bg-no-repeat
+            shadow-md transition-all duration-200 hover:scale-[1.03]"
+            [ngClass]="layout() === 'public'
+              ? 'border-white ring-2 ring-primary-900/60'
+              : 'border-white/20'"
+          >
+            <span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70
+              to-transparent px-2 py-2 text-sm font-medium text-white">
+              Public
+            </span>
+          </button>
+        </div>
+      </section>
     </div>
   </aside>
 }
