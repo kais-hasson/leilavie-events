@@ -1,7 +1,8 @@
 import { Component, signal } from '@angular/core';
+import { ScrollRevealDirective } from '../../../@shared/directives/scroll-reveal.directive';
 
 @Component({
-  imports: [],
+  imports: [ScrollRevealDirective],
   selector: 'app-about',
   styleUrl: './about.scss',
   templateUrl: './about.html',

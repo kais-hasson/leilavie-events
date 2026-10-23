@@ -54,6 +54,14 @@
   transform: scale(0.94);
 }
 
+.reveal.reveal-left {
+  transform: translateX(-28px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(28px);
+}
+
 .reveal.reveal-visible {
   opacity: 1;
   transform: none;

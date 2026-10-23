@@ -1,6 +1,6 @@
-<div class="bg-background h-full w-full flex flex-col items-start ">
-  <header>
-    <p>
+<div class="bg-background h-full w-full flex flex-col items-start px-4 sm:px-6">
+  <header appScrollReveal>
+    <p class="text-primary-900">
       Leilavie
       Sweet sights, Sweet delights.
       Events.Gifts.Flowers.Grazing.
@@ -9,16 +9,21 @@
     </p>
   </header>
   <main class="flex flex-col gap-2 items-start w-full">
-    <div class="flex justify-between h-[70vh] w-full">
-      <div class="self start p-2 m-2">
-        <div class="bg-[url('/assets/logos/gemini-svg.svg')] bg-cover bg-center bg-no-repeat h-50 w-50 border rounded-full border-primary" >
+    <div class="flex flex-wrap items-center justify-between gap-6 py-8 w-full">
+      <div appScrollReveal class="reveal-left group relative shrink-0 p-2" style="--reveal-delay: 80ms">
+        <div
+          class="pointer-events-none absolute -left-4 -top-4 h-2/3 w-2/3
+                 rounded-full bg-gradient-to-br from-primary/40 via-secondary/15
+                 to-transparent opacity-70 blur-2xl">
+        </div>
+        <div class="relative bg-[url('/assets/logos/gemini-svg.svg')] bg-cover bg-center bg-no-repeat h-50 w-50 border rounded-full border-primary shadow-xl shadow-primary/10 transition-transform duration-300 group-hover:scale-105" >
         </div>
       </div>
-      <div  class="self-center w-[30%]">
-        <img src="assets/img/li.jpg"  class="h-100 w-50 border border-primary rounded-[30vh] backdrop-blur-xl"/>
+      <div appScrollReveal class="reveal-scale shrink-0 w-[30%]" style="--reveal-delay: 160ms">
+        <img src="assets/img/li.jpg"  class="h-100 w-50 border border-primary rounded-[30vh] backdrop-blur-xl shadow-xl shadow-primary/10 transition-transform duration-300 hover:scale-105"/>
       </div>
-      <div class="self-end w-[40%] m-8 ">
-        <p class="font-app text-primary rounded-2xl
+      <div appScrollReveal class="reveal-right w-[40%]" style="--reveal-delay: 240ms">
+        <p class="font-app text-primary-900 rounded-2xl
          border border-primary/20
          bg-gradient-to-r
          from-primary/20
@@ -26,7 +31,9 @@
          to-primary/10
          px-6 py-3
          backdrop-blur-xl
-         shadow-lg w-fit">
+         shadow-lg w-fit
+         transition-shadow duration-300
+         hover:shadow-xl">
           `Leilavie
           Sweet sights, Sweet delights.
           Events. Gifts. Flowers. Grazing.

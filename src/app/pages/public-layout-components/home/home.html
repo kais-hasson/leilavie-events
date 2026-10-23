@@ -1,16 +1,17 @@
 <div class="text-header font-bold flex flex-col items-start">
 
-  <header class="flex justify-between items-center w-full px-4 sm:px-6">
+  <header appScrollReveal class="flex justify-between items-center w-full px-4 sm:px-6">
     <div>
       <p
         class="text-[calc(var(--app-header-font-size)+1rem)]
                sm:text-[calc(var(--app-header-font-size)+2rem)]
-               tracking-tight"
+               tracking-tight text-primary-900"
       >
         Leilavie
+        <span class="mt-2 block h-1 w-14 rounded-full bg-secondary"></span>
       </p>
 
-      <p class="text-sm sm:text-base">
+      <p class="text-sm sm:text-base text-primary-700/80">
         Sweet sights, Sweet delights.
       </p>
     </div>
@@ -54,7 +55,8 @@
 
       <!-- Categories -->
       <div
-        class="self-center
+        appScrollReveal
+        class="reveal-left self-center
                lg:self-start
                px-2 mx-2
                bg-gradient-to-t
@@ -63,12 +65,12 @@
                to-background/30
                rounded-[2vh]
                h-full"
-               
+        style="--reveal-delay: 80ms"
       >
 
         <!-- Desktop circle / mobile smaller circle -->
         <div
-          class="relative
+          class="group relative
                  flex h-32 w-32
                  sm:h-40 sm:w-40
                  lg:h-56 lg:w-56
@@ -81,8 +83,16 @@
                  to-secondary/10
                  p-3
                  shadow-xl shadow-primary/10
-                 backdrop-blur-xl"
+                 backdrop-blur-xl
+                 transition-all duration-300
+                 hover:shadow-2xl"
         >
+
+          <div
+            class="pointer-events-none absolute -left-4 -top-4 h-2/3 w-2/3
+                   rounded-full bg-gradient-to-br from-primary/40 via-secondary/15
+                   to-transparent opacity-70 blur-2xl">
+          </div>
 
           <div
             class="bg-[url('/assets/logos/gemini-svg.svg')]
@@ -92,7 +102,9 @@
                    lg:inset-[11px]
                    shadow-xl
                    bg-cover bg-center bg-no-repeat
-                   border rounded-full border-primary"
+                   border rounded-full border-primary
+                   transition-transform duration-500
+                   group-hover:scale-105"
           >
           </div>
 
@@ -133,9 +145,11 @@
                    lg:mt-4
                    lg:w-full
                    text-xs lg:text-sm
-                   font-semibold text-primary
+                   font-semibold text-primary-900
                    shadow-xl shadow-primary/10
-                   backdrop-blur-xl"
+                   backdrop-blur-xl
+                   transition-all duration-200
+                   hover:scale-105 hover:shadow-2xl hover:border-primary/40"
           >
             flowers
           </button>
@@ -153,9 +167,11 @@
                    lg:mt-4
                    lg:w-full
                    text-xs lg:text-sm
-                   font-semibold text-primary
+                   font-semibold text-primary-900
                    shadow-xl shadow-primary/10
-                   backdrop-blur-xl"
+                   backdrop-blur-xl
+                   transition-all duration-200
+                   hover:scale-105 hover:shadow-2xl hover:border-primary/40"
           >
             foods
           </button>
@@ -173,9 +189,11 @@
                    lg:mt-4
                    lg:w-full
                    text-xs lg:text-sm
-                   font-semibold text-primary
+                   font-semibold text-primary-900
                    shadow-xl shadow-primary/10
-                   backdrop-blur-xl"
+                   backdrop-blur-xl
+                   transition-all duration-200
+                   hover:scale-105 hover:shadow-2xl hover:border-primary/40"
           >
             perfumes
           </button>
@@ -193,9 +211,11 @@
                    lg:mt-4
                    lg:w-full
                    text-xs lg:text-sm
-                   font-semibold text-primary
+                   font-semibold text-primary-900
                    shadow-xl shadow-primary/10
-                   backdrop-blur-xl"
+                   backdrop-blur-xl
+                   transition-all duration-200
+                   hover:scale-105 hover:shadow-2xl hover:border-primary/40"
           >
             sweets
           </button>
@@ -206,11 +226,13 @@
 
       <!-- Slider -->
       <div
-        class="relative z-10
+        appScrollReveal
+        class="reveal-scale relative z-10
                flex w-full
                items-center justify-center
                order-first lg:order-none
                lg:w-[50vw]"
+        style="--reveal-delay: 160ms"
       >
         <div class="w-full max-w-2xl">
           <app-image-slider-animations [images]="homeImages"/>
@@ -220,16 +242,18 @@
 
       <!-- Right information -->
       <div
-        class="self-stretch
+        appScrollReveal
+        class="reveal-right self-stretch
                lg:self-start
                flex flex-col
                mx-0
                lg:m-8
                gap-4 lg:gap-6"
+        style="--reveal-delay: 240ms"
       >
 
         <p
-          class="font-app text-primary
+          class="font-app text-primary-900
                  rounded-2xl
                  border border-primary/20
                  bg-gradient-to-r
@@ -266,7 +290,7 @@
             <span
               class="text-xs font-semibold
                      uppercase tracking-widest
-                     text-primary"
+                     text-primary-900"
             >
               Service Area
             </span>

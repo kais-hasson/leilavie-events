@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { ImageSliderAnimations } from '../../../@shared/components/image-slider-animations/image-slider-animations';
+import { ScrollRevealDirective } from '../../../@shared/directives/scroll-reveal.directive';
 
 @Component({
-  imports: [ImageSliderAnimations],
+  imports: [ImageSliderAnimations, ScrollRevealDirective],
   selector: 'app-home',
   styleUrl: './home.scss',
   templateUrl: './home.html',

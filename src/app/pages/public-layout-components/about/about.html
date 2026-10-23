@@ -1,16 +1,17 @@
 <div class="text-header bg-background bg-gradient-to-r to-primary/5 font-bold flex flex-col items-start">
 
-  <header class="flex justify-between items-center w-full px-4 sm:px-6">
+  <header appScrollReveal class="flex justify-between items-center w-full px-4 sm:px-6">
     <div>
       <p
         class="text-[calc(var(--app-header-font-size)+1rem)]
                sm:text-[calc(var(--app-header-font-size)+2rem)]
-               tracking-tight"
+               tracking-tight text-primary-900"
       >
         About Leilavie
+        <span class="mt-2 block h-1 w-14 rounded-full bg-secondary"></span>
       </p>
 
-      <p class="text-sm sm:text-base">
+      <p class="text-sm sm:text-base text-primary-700/80">
         Sweet sights, Sweet delights.
       </p>
     </div>
@@ -66,7 +67,11 @@
     >
 
       <!-- TEXT -->
-      <div class="flex flex-col w-full lg:w-auto">
+      <div
+        appScrollReveal
+        class="reveal-left flex flex-col w-full lg:w-auto text-primary-900"
+        style="--reveal-delay: 80ms"
+      >
         @for (line of text().split('\n'); track $index) {
           <span class="block">{{ line }}</span>
         }
@@ -75,9 +80,10 @@
 
       <!-- IMAGE -->
       <div
-        class="h-[40vh]
+        appScrollReveal
+        class="reveal-right h-[40vh]
                relative right-0
-               
+
                lg:min-h-[60vh]
                lg:h-auto
                lg:w-[20vw]
@@ -92,13 +98,19 @@
                bg-gradient-to-r
                bg-primary/20
                shadow-xl shadow-primary/10
-               backdrop-blur-xl"
+               backdrop-blur-xl
+               overflow-hidden
+               transition-shadow duration-300
+               hover:shadow-2xl"
+        style="--reveal-delay: 160ms"
       >
 
         <img
           src="/assets/img/li.jpg"
           alt="image"
-          class="h-full w-full object-cover rounded-lg"
+          class="h-full w-full object-cover rounded-lg
+                 transition-transform duration-500
+                 hover:scale-105"
         >
 
       </div>
