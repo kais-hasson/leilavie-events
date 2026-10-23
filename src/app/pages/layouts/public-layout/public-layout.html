@@ -1,7 +1,10 @@
-<div class="bg-background bg-gradient-to-r to-primary/5 h-[100vh]">
+<div class="flex min-h-screen w-full flex-col bg-background bg-gradient-to-r to-primary/5">
 <app-header (settingsRequested)="openSettings()"/>
 
-<main class="h-[88vh] w-[99vw] relative top-25 font-app text-primary-800 text-app">
+<main
+  class="w-full pt-[calc(var(--app-public-header-height,4.5rem)+1.5rem)] font-app text-primary-800 text-app"
+  [class.min-h-screen]="navigationMode() === 'single-page'"
+>
   @if (navigationMode() === 'single-page') {
     <app-sections />
   } @else {

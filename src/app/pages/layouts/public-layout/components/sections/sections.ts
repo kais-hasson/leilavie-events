@@ -8,10 +8,10 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { SettingsService } from '../../../../../services/settings.service';
-import { Home } from '../../../../home/home';
-import { About } from '../../../../about/about';
-import { ContactUs } from '../../../../contact-us/contact-us';
-import { OurServices } from '../../../../our-services/our-services';
+import { Home } from '../../../../public-layout-components/home/home';
+import { About } from '../../../../public-layout-components/about/about';
+import { ContactUs } from '../../../../public-layout-components/contact-us/contact-us';
+import { OurServices } from '../../../../public-layout-components/our-services/our-services';
 import { isPlatformBrowser } from '@angular/common';
 @Component({
   imports: [Home, About, ContactUs, OurServices],

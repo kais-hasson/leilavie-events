@@ -18,6 +18,7 @@ export type Theme = {
   primary: Palette;
   secondary: Palette;
   background: string;
+  backgroundImage: string;
   text: string;
   surface?: string;
   error?: string;
@@ -26,8 +27,10 @@ export type Theme = {
   onBackground?: string;
   onSurface?: string;
   onError?: string;
-
+  buttonTextColor: string;
   fontFamily: string;
+  fontFamilyHeader: string;
+  fontFamilySecondary: string;
   fontSize: string;
   headerFontSize: string;
 };
@@ -80,21 +83,28 @@ function generatePalette(color: string): Palette {
 
 export const themes: Record<string, Theme> = {
   default: {
-    primary: generatePalette('#6B5282'),
-    secondary: generatePalette('#7A8B7B'),
-    background: '#FAFAFA',
-    text: '#FAFAFA',
-    fontFamily: 'Montserrat',
+    primary: generatePalette('#FDD7E4'),
+    secondary: generatePalette('#6B5282'),
+    background: '#FFF9FA',
+    text: '#6B5282',
+    buttonTextColor: '#FFF9FA',
+    fontFamily: '"Bodoni Moda", serif',
+    backgroundImage: 'url(../../../../assets/images/background.jpg)',
+    fontFamilyHeader: '"Bodoni Moda", serif',
+    fontFamilySecondary: '"Great Vibes", cursive',
     fontSize: '16px',
     headerFontSize: '24px',
-  },
-
+},
   second: {
     primary: generatePalette('#7A8B7B'),
     secondary: generatePalette('#6B5282'),
     background: '#FFF9FA',
     text: '#FAFAFA',
+    backgroundImage: 'url(../../../../assets/images/background.jpg)',
+    buttonTextColor: '#FAFAFA',
     fontFamily: 'Poppins',
+    fontFamilyHeader: 'Poppins',
+    fontFamilySecondary: 'Poppins',
     fontSize: '16px',
     headerFontSize: '24px',
   },
@@ -103,8 +113,26 @@ export const themes: Record<string, Theme> = {
     secondary: generatePalette('#7A8B7B'),
     background: '#6B5282',
     text: '#6B5282',
+    backgroundImage: 'url(../../../../assets/images/background.jpg)',
+    buttonTextColor: '#6B5282',
     fontFamily: 'Great Vibes',
+    fontFamilyHeader: 'Great Vibes',
+    fontFamilySecondary: 'Great Vibes',
     fontSize: '16px',
     headerFontSize: '24px',
   },
-};
+  fourth: {
+      primary: generatePalette('#6B5282'),
+    secondary: generatePalette('#7A8B7B'),
+    background: '#FAFAFA',
+    text: '#FAFAFA',
+    fontFamily: 'Montserrat',
+    backgroundImage: 'url(../../../../assets/images/background.jpg)',
+    fontFamilyHeader: 'Montserrat',
+    fontFamilySecondary: 'Montserrat',
+    buttonTextColor: '#FAFAFA',
+    fontSize: '16px',
+    headerFontSize: '24px', 
+
+} 
+}

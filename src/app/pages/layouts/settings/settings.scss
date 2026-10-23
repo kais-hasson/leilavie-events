@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+aside {
+  animation: slide-in 0.25s ease-out;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 30%);
+    border-radius: 999px;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

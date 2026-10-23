@@ -1,0 +1,94 @@
+<section class="relative flex h-full w-full flex-col justify-center overflow-hidden bg-background px-4 py-6 sm:px-6 sm:py-10">
+
+  <!-- BACKGROUND DECORATION -->
+  <div
+    class="pointer-events-none absolute -right-10 top-10 z-0 h-[35vh] w-[55vw]
+           rounded-[2rem] bg-gradient-to-br from-primary/40 to-transparent
+           opacity-60 blur-3xl
+           lg:-right-[5vw] lg:top-[5vh] lg:h-[55vh] lg:w-[28vw]">
+  </div>
+
+  <div
+    class="pointer-events-none absolute -left-10 bottom-0 z-0 h-[30vh] w-[50vw]
+           rounded-[2rem] bg-gradient-to-tr from-secondary/30 to-transparent
+           opacity-50 blur-3xl
+           lg:-left-[6vw] lg:bottom-[-5vh] lg:h-[45vh] lg:w-[24vw]">
+  </div>
+
+  <div class="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-3 text-center">
+    <span
+      appScrollReveal
+      class="font-app text-xs font-semibold uppercase
+             tracking-[0.3em] text-secondary/70 sm:text-sm"
+      style="--reveal-delay: 60ms"
+    >
+      {{ eyebrow() }}
+    </span>
+    <h2
+      appScrollReveal
+      class="font-app-header text-3xl text-primary-900
+             sm:text-4xl lg:text-5xl"
+      style="--reveal-delay: 160ms"
+    >
+      {{ heading() }}
+    </h2>
+  </div>
+
+  <div
+    class="relative z-10 mx-auto mt-4 grid max-w-6xl grid-cols-2 gap-x-4 gap-y-4
+           sm:mt-6 sm:grid-cols-3 sm:gap-y-6 lg:grid-cols-5"
+  >
+    @for (service of services(); track service.title; let index = $index) {
+      <div
+        appScrollReveal
+        class="group flex flex-col items-center gap-3 text-center"
+        [style.--reveal-delay]="(240 + index * 100) + 'ms'"
+      >
+        <div class="relative">
+          <div
+            [ngClass]="index % 2 === 0
+              ? 'bg-gradient-to-br from-primary/50 via-secondary/20 to-transparent'
+              : 'bg-gradient-to-br from-secondary/40 via-primary/20 to-transparent'"
+            class="pointer-events-none absolute -inset-2 -z-10 rounded-2xl blur-xl
+                   transition-opacity duration-300
+                   opacity-60 group-hover:opacity-90"
+          ></div>
+
+          <div
+            class="h-32 w-32 overflow-hidden rounded-2xl border border-white/40
+                   bg-gradient-to-br from-secondary/30 via-background/40 to-primary/20
+                   p-2 shadow-lg shadow-primary/10 ring-1 ring-primary/10
+                   backdrop-blur-xl transition-all duration-300
+                   group-hover:scale-105 group-hover:shadow-xl
+                   group-hover:shadow-secondary/20
+                   sm:h-36 sm:w-36 lg:h-40 lg:w-40"
+          >
+            <img
+              [src]="service.image"
+              alt=""
+              class="h-full w-full rounded-xl object-cover transition-transform duration-500
+                     group-hover:scale-110"
+            />
+          </div>
+        </div>
+
+        <p
+          class="font-app max-w-[10rem] text-sm font-medium text-primary-900
+                 transition-colors duration-200 group-hover:text-secondary
+                 sm:text-base"
+        >
+          {{ service.title }}
+        </p>
+
+        <span
+          class="font-app text-secondary/70 transition-transform duration-200
+                 group-hover:translate-x-1"
+          aria-hidden="true"
+        >
+          →
+        </span>
+      </div>
+    }
+  </div>
+
+</section>

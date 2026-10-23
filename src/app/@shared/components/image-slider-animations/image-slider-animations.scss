@@ -59,7 +59,7 @@
 
   backdrop-filter: blur(20px);
 
-  border-radius: 30vh;
+  border-radius: 2vh;
 
   pointer-events: none;
 
@@ -73,7 +73,7 @@
 .position-left {
   left: 0;
 
-  top: calc(100% - 27.5rem);
+  top: calc(100% - 33rem);
 
   width: 15rem;
   height: 27.5rem;
@@ -102,8 +102,7 @@
 
 .position-right {
   left: calc(100% - 15rem);
-
-  top: 0;
+   top: calc(100% - 33rem);
 
   width: 15rem;
   height: 27.5rem;

@@ -1,0 +1,122 @@
+<div class="text-header bg-background bg-gradient-to-r to-primary/5 font-bold flex flex-col items-start">
+
+  <header appScrollReveal class="flex justify-between items-center w-full px-4 sm:px-6">
+    <div>
+      <p
+        class="text-[calc(var(--app-header-font-size)+1rem)]
+               sm:text-[calc(var(--app-header-font-size)+2rem)]
+               tracking-tight text-primary-900"
+      >
+        About Leilavie
+        <span class="mt-2 block h-1 w-14 rounded-full bg-secondary"></span>
+      </p>
+
+      <p class="text-sm sm:text-base text-primary-700/80">
+        Sweet sights, Sweet delights.
+      </p>
+    </div>
+
+    <div>
+      <div
+        class="bg-[url('/assets/logos/lavander.svg')]
+               shadow-xl bg-cover bg-[#FAFAFA]
+               bg-center bg-no-repeat
+               h-20 w-20
+               sm:h-30 sm:w-30
+               rounded-full">
+      </div>
+    </div>
+  </header>
+
+
+  <main class="flex gap-3 flex-1">
+
+    <div
+      class="flex flex-col
+             lg:flex-row
+             lg:justify-between
+
+             min-h-[68vh]
+             lg:h-[68vh]
+
+             rounded-[1rem]
+             lg:rounded-[1rem]
+
+             border border-primary/10
+             bg-gradient-to-br
+             bg-primary/50
+
+             px-4 py-6
+             sm:px-6 sm:py-10
+
+             m-3
+             sm:m-8
+
+             w-full
+             min-w-0
+             lg:min-w-[90vw]
+
+             to-white/100
+             shadow-2xl shadow-primary/5
+             backdrop-blur-xl
+
+             lg:px-12
+
+             gap-8
+             lg:gap-0"
+    >
+
+      <!-- TEXT -->
+      <div
+        appScrollReveal
+        class="reveal-left flex flex-col w-full lg:w-auto text-primary-900"
+        style="--reveal-delay: 80ms"
+      >
+        @for (line of text().split('\n'); track $index) {
+          <span class="block">{{ line }}</span>
+        }
+      </div>
+
+
+      <!-- IMAGE -->
+      <div
+        appScrollReveal
+        class="reveal-right h-[40vh]
+               relative right-0
+
+               lg:min-h-[60vh]
+               lg:h-auto
+               lg:w-[20vw]
+               lg:right-[-8rem]
+
+               justify-self-end
+               p-3
+               lg:p-5
+
+               rounded-[1rem]
+               border border-primary/20
+               bg-gradient-to-r
+               bg-primary/20
+               shadow-xl shadow-primary/10
+               backdrop-blur-xl
+               overflow-hidden
+               transition-shadow duration-300
+               hover:shadow-2xl"
+        style="--reveal-delay: 160ms"
+      >
+
+        <img
+          src="/assets/img/li.jpg"
+          alt="image"
+          class="h-full w-full object-cover rounded-lg
+                 transition-transform duration-500
+                 hover:scale-105"
+        >
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
